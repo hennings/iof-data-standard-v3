@@ -165,7 +165,7 @@
             <xsd:element name="EventRace" type="EventRace" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation>
-                  The event race that the entry list belongs to, in case of a multi-day event.
+                  The event race that the entry list belongs to, in case of a multi-race event.
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -258,7 +258,7 @@
             <xsd:element name="EventRace" type="EventRace" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation>
-                  The event race that the start lists belong to, in case of a multi-day event.
+                  The event race that the start lists belong to, in case of a multi-race event.
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -1143,14 +1143,28 @@
         </xsd:restriction>
       </xsd:simpleType>
     </xsd:attribute>
-    <xsd:attribute name="teamMinAge" type="xsd:integer" use="optional">
+    <xsd:attribute name="minNumberOfTeamMembers" type="xsd:integer" use="optional" default="1">
+      <xsd:annotation>
+        <xsd:documentation>
+          The minimum number of members in a team taking part in the class, if the class is a team class.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="maxNumberOfTeamMembers" type="xsd:integer" use="optional" default="1">
+      <xsd:annotation>
+        <xsd:documentation>
+          The maximum number of members in a team taking part in the class, if the class is a team class.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="minTeamAge" type="xsd:integer" use="optional">
       <xsd:annotation>
         <xsd:documentation>
           The lowest allowed age sum of the team members for a team taking part in the class.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="teamMaxAge" type="xsd:integer" use="optional">
+    <xsd:attribute name="maxTeamAge" type="xsd:integer" use="optional">
       <xsd:annotation>
         <xsd:documentation>
           The highest allowed age sum of the team members for a team taking part in the class.
