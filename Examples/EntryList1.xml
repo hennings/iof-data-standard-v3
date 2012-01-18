@@ -26,7 +26,7 @@
     <Organisation>
       <Id>5</Id>
       <Name>OC Back and Forth</Name>
-      <Country code="GB">Great Britain</Country>
+      <Country code="GBR">Great Britain</Country>
     </Organisation>
     <!-- the ControlCard element is to be omitted if the competitor wishes to rent a control card -->
     <ControlCard>794021</ControlCard>
@@ -47,7 +47,7 @@
     <Organisation>
       <Id>2</Id>
       <Name>Bushmen OC</Name>
-      <Country code="GB">Great Britain</Country>
+      <Country code="GBR">Great Britain</Country>
     </Organisation>
     <!-- this competitor wants to rent a control card, and thus the ControlCard element is omitted -->
     <Class>

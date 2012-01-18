@@ -210,10 +210,17 @@
             <xsd:element name="Event" type="Event"/>
             <xsd:element name="EventRace" type="EventRace" minOccurs="0"/>
             <xsd:element name="Map" type="Map" minOccurs="0"/>
+            <xsd:element name="Control" type="Control" minOccurs="0" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:documentation>
+                  All controls of the event or event race.
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
             <xsd:element name="CourseClassData" type="CourseClassData" minOccurs="0" maxOccurs="unbounded">
               <xsd:annotation>
                 <xsd:documentation>
-                  The assignment of a course to classes.
+                  The assignment of courses to classes.
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -684,6 +691,13 @@
       <xsd:element name="Country" type="Country" minOccurs="0"/>
       <xsd:element name="Address" type="Address" minOccurs="0" maxOccurs="unbounded"/>
       <xsd:element name="Contact" type="Contact" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="Position" type="GeoPosition" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The geographical location of the organisation, e.g. a city center, an office or a club house.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Account" type="Account" minOccurs="0" maxOccurs="unbounded"/>
       <xsd:element name="Role" type="Role" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
@@ -1870,6 +1884,13 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
+      <xsd:element name="EntryId" type="Id" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The id corresponding to this person's entry in an EntryList.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Person" type="Person">
         <xsd:annotation>
           <xsd:documentation>
@@ -1958,6 +1979,13 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
+      <xsd:element name="EntryId" type="Id" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The id corresponding to this team's entry in an EntryList.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Name" type="xsd:string">
         <xsd:annotation>
           <xsd:documentation>
@@ -2077,6 +2105,13 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
+      <xsd:element name="EntryId" type="Id" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The id corresponding to this person's entry in an EntryList.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Person" type="Person">
         <xsd:annotation>
           <xsd:documentation>
@@ -2178,6 +2213,13 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
+      <xsd:element name="EntryId" type="Id" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The id corresponding to this team's entry in an EntryList.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Name" type="xsd:string">
         <xsd:annotation>
           <xsd:documentation>
@@ -2788,7 +2830,7 @@
   <xsd:complexType name="CourseClassData">
     <xsd:annotation>
       <xsd:documentation>
-        Element that connects a number of courses with a number of event classes.
+        Element that connects a number of courses with a number of classes.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
@@ -2802,7 +2844,7 @@
       <xsd:element name="Class" type="Class" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            The event classes.
+            The classes that are assigned to the courses.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3011,38 +3053,51 @@
             Defines the courses that are assigned to the team's legs/members.
           </xsd:documentation>
         </xsd:annotation>
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="BibNumber" type="xsd:string" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation>
-                  The bib number of the team member.
-                </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="Leg" type="xsd:integer">
-              <xsd:annotation>
-                <xsd:documentation>
-                  The number of the leg.
-                </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="LegOrder" type="xsd:integer" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation>
-                  Defines the team member's starting order at a parallel relay leg.
-                </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="Course" type="Course">
-              <xsd:annotation>
-                <xsd:documentation>
-                  Defines the course that is assigned to this leg.
-                </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-          </xsd:sequence>
-        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="CourseAssignment">
+    <xsd:annotation>
+      <xsd:documentation>
+        Defines the courses that are assigned to a team's legs/members.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Name" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The name of the team member.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="BibNumber" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The bib number of the team member.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Leg" type="xsd:integer">
+        <xsd:annotation>
+          <xsd:documentation>
+            The number of the leg.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="LegOrder" type="xsd:integer" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Defines the team member's starting order at a parallel relay leg.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Course" type="Course">
+        <xsd:annotation>
+          <xsd:documentation>
+            Defines the course that is assigned to this leg.
+          </xsd:documentation>
+        </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
@@ -3259,7 +3314,7 @@
         <xsd:attribute name="code" type="xsd:string" use="required">
           <xsd:annotation>
             <xsd:documentation>
-              The ISO 3166-1-alpha-2 code of the country as stated in http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2.
+              The International Olympic Committee's 3-letter code of the country as stated in http://en.wikipedia.org/wiki/List_of_IOC_country_codes. Note that several of the IOC codes are different from the standard ISO 3166-1 alpha-3 codes.
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>

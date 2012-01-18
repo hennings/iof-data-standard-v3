@@ -31,7 +31,7 @@
       <Organisation>
         <Id>4</Id>
         <Name>Forest Vagabonds</Name>
-        <Country code="GB">Great Britain</Country>
+        <Country code="GBR">Great Britain</Country>
       </Organisation>
       <!-- the overall result -->
       <Result>
@@ -338,12 +338,12 @@
       <Organisation>
         <Id>1</Id>
         <Name>Super Fast Orienteers</Name>
-        <Country code="GB">Great Britain</Country>
+        <Country code="GBR">Great Britain</Country>
       </Organisation>
       <Organisation>
         <Id>3</Id>
         <Name>Unintentional Navigators</Name>
-        <Country code="GB">Great Britain</Country>
+        <Country code="GBR">Great Britain</Country>
       </Organisation>
       <Result>
         <BibNumber>2</BibNumber>
@@ -376,7 +376,7 @@
         <Organisation>
           <Id>1</Id>
           <Name>Super Fast Orienteers</Name>
-          <Country code="GB">Great Britain</Country>
+          <Country code="GBR">Great Britain</Country>
         </Organisation>
         <Leg>1</Leg>
         <Result>
@@ -426,7 +426,7 @@
         <Organisation>
           <Id>3</Id>
           <Name>Unintentional Navigators</Name>
-          <Country code="GB">Great Britain</Country>
+          <Country code="GBR">Great Britain</Country>
         </Organisation>
         <Leg>2</Leg>
         <LegOrder>1</LegOrder>
@@ -477,7 +477,7 @@
         <Organisation>
           <Id>1</Id>
           <Name>Super Fast Orienteers</Name>
-          <Country code="GB">Great Britain</Country>
+          <Country code="GBR">Great Britain</Country>
         </Organisation>
         <Leg>3</Leg>
         <Result>

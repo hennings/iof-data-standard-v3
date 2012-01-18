@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- 
   List of organisations to be exchanged between for example a federation organisation database and an event administration software.
   The term 'organisation' is a general term including clubs, federations, etc.
@@ -17,13 +17,13 @@
     <!-- the parent organisation is included, giving the ability to build a hierarchical organisation tree -->
     <!-- make sure that the organisation that is idref'ed is present in the list -->
     <ParentOrganisation idref="1002"/>
-    <Country code="GB">Great Britain</Country>
+    <Country code="GBR">Great Britain</Country>
     <!-- the postal address can be included -->
     <Address>
       <Street>19 Rapid Road</Street>
       <ZipCode>B2 3CD</ZipCode>
       <City>Quicktown</City>
-      <Country code="GB">Great Britain</Country>
+      <Country code="GBR">Great Britain</Country>
     </Address>
     <!-- the Contact element is used to specify email addresses, web addresses, phone numbers and fax numbers -->
     <Contact type="EmailAddress">info@superfast.org.uk</Contact>
@@ -50,13 +50,13 @@
     <ShortName>BOC</ShortName>
     <Type>Club</Type>
     <ParentOrganisation idref="1002"/>
-    <Country code="GB">Great Britain</Country>
+    <Country code="GBR">Great Britain</Country>
     <!-- the postal address can be included -->
     <Address>
       <Street>12 Bush Lane</Street>
       <ZipCode>J6 9AF</ZipCode>
       <City>Bushtown</City>
-      <Country code="GB">Great Britain</Country>
+      <Country code="GBR">Great Britain</Country>
     </Address>
     <!-- the Contact element is used to specify email addresses and phone numbers -->
     <Contact type="EmailAddress">boc@bushmenoc.org</Contact>
@@ -83,7 +83,7 @@
       <Street>Radiokatu 20</Street>
       <ZipCode>FIN-00093</ZipCode>
       <City>SLU</City>
-      <Country code="FI">Finland</Country>
+      <Country code="FIN">Finland</Country>
     </Address>
     <Contact type="EmailAddress">iof@orienteering.org</Contact>
     <Contact type="WebAddress">http://www.orienteering.org</Contact>
@@ -97,13 +97,13 @@
     <ShortName>BOF</ShortName>
     <Type>NationalFederation</Type>
     <ParentOrganisation idref="1001"/>
-    <Country code="GB">Great Britain</Country>
+    <Country code="GBR">Great Britain</Country>
     <Address>
       <Street>8a Stancliffe House, Whitworth Road, Darley Dale</Street>
       <ZipCode>DE4 2HJ</ZipCode>
       <City>Matlock</City>
       <State>Derbyshire</State>
-      <Country code="GB">Great Britain</Country>
+      <Country code="GBR">Great Britain</Country>
     </Address>
     <Contact type="EmailAddress">info@britishorienteering.org.uk</Contact>
     <Contact type="WebAddress">http://www.britishorienteering.org.uk</Contact>

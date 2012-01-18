@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- 
   List of competitors to be exchanged between for example a competitor database and an event administration software.
 -->
@@ -20,15 +20,15 @@
       </Name>
       <!-- birth date is specified in ISO 8601 format (yyyy-mm-dd) -->
       <BirthDate>1972-12-16</BirthDate>
-      <!-- the ISO 3166 two-letter country code ('GB') is used to specify nationality -->
+      <!-- the International Olympic Committee's three-letter country code ('GBR') is used to specify nationality -->
       <!-- the local language country name ('Great Britain') may also be set -->
-      <Nationality code="GB">Great Britain</Nationality>
+      <Nationality code="GBR">Great Britain</Nationality>
       <!-- the postal address can be included -->
       <Address>
         <Street>13 Long Road</Street>
         <ZipCode>A1 1AA</ZipCode>
         <City>Smalltown</City>
-        <Country code="GB">Great Britain</Country>
+        <Country code="GBR">Great Britain</Country>
       </Address>
       <!-- the Contact element is used to specify email addresses and phone numbers -->
       <Contact type="EmailAddress">mary.west@example.com</Contact>
@@ -40,12 +40,12 @@
       <!-- an identifier that is known by all parts involved in the data exchange, for example a federation database identifier -->
       <Id>3</Id>
       <Name>Unintentional Navigators</Name>
-      <Country code="GB">Great Britain</Country>
+      <Country code="GBR">Great Britain</Country>
     </Organisation>
     <Organisation>
       <Id>2</Id>
       <Name>Bushmen OC</Name>
-      <Country code="GB">Great Britain</Country>
+      <Country code="GBR">Great Britain</Country>
     </Organisation>
     <!-- the control card(s) that the person owns -->
     <!-- specify punching system using the 'punchingSystem' attribute -->
@@ -71,12 +71,12 @@
         <Given>Gilbert</Given>
       </Name>
       <BirthDate>1958-01-22</BirthDate>
-      <Nationality code="GB">Great Britain</Nationality>
+      <Nationality code="GBR">Great Britain</Nationality>
     </Person>
     <Organisation>
       <Id>1</Id>
       <Name>Super Fast Orienteers</Name>
-      <Country code="GB">Great Britain</Country>
+      <Country code="GBR">Great Britain</Country>
     </Organisation>
     <ControlCard punchingSystem="SI">54345</ControlCard>
     <Class>
@@ -93,22 +93,22 @@
         <Given>Stefanie</Given>
       </Name>
       <BirthDate>1986-11-12</BirthDate>
-      <Nationality code="DE">Germany</Nationality>
+      <Nationality code="GER">Germany</Nationality>
     </Person>
     <Organisation>
       <Id>1</Id>
       <Name>Super Fast Orienteers</Name>
-      <Country code="GB">Great Britain</Country>
+      <Country code="GBR">Great Britain</Country>
     </Organisation>
     <Organisation>
       <Id>2</Id>
       <Name>Bushmen OC</Name>
-      <Country code="GB">Great Britain</Country>
+      <Country code="GBR">Great Britain</Country>
     </Organisation>
     <Organisation>
       <Id>3</Id>
       <Name>Unintentional Navigators</Name>
-      <Country code="GB">Great Britain</Country>
+      <Country code="GBR">Great Britain</Country>
     </Organisation>
     <ControlCard punchingSystem="SI">99999</ControlCard>
     <ControlCard punchingSystem="Emit">88888</ControlCard>
@@ -126,7 +126,7 @@
         <Given>Jason</Given>
       </Name>
       <BirthDate>1966-06-13</BirthDate>
-      <Nationality code="GB">Great Britain</Nationality>
+      <Nationality code="GBR">Great Britain</Nationality>
     </Person>
     <!-- this person is not member of any organisation, owns no control cards and has no default classes defined, -->
     <!-- so Organisation, ControlCard and Class elements are omitted -->

@@ -39,7 +39,7 @@
       <Organisation>
         <Id>5</Id>
         <Name>OC Back and Forth</Name>
-        <Country code="GB">Great Britain</Country>
+        <Country code="GBR">Great Britain</Country>
       </Organisation>
       <Result>
         <BibNumber>102</BibNumber>
@@ -147,7 +147,7 @@
       <Organisation>
         <Id>2</Id>
         <Name>Bushmen OC</Name>
-        <Country code="GB">Great Britain</Country>
+        <Country code="GBR">Great Britain</Country>
       </Organisation>
       <Result>
         <BibNumber>102</BibNumber>
@@ -222,7 +222,7 @@
       <Organisation>
         <Id>6</Id>
         <Name>Doubtful Direction</Name>
-        <Country code="GB">Great Britain</Country>
+        <Country code="GBR">Great Britain</Country>
       </Organisation>
       <Result>
         <StartTime>2011-07-30T10:15:00+01:00</StartTime>

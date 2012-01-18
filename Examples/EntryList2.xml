@@ -21,7 +21,7 @@
     <Organisation>
       <Id>4</Id>
       <Name>Forest Vagabonds</Name>
-      <Country code="GB">Great Britain</Country>
+      <Country code="GBR">Great Britain</Country>
     </Organisation>
     <!-- the TeamEntryPerson elements hold the team lineup information, and should be omitted if the lineup is not known -->
     <TeamEntryPerson>
@@ -98,12 +98,12 @@
     <Organisation>
       <Id>1</Id>
       <Name>Super Fast Orienteers</Name>
-      <Country code="GB">Great Britain</Country>
+      <Country code="GBR">Great Britain</Country>
     </Organisation>
     <Organisation>
       <Id>3</Id>
       <Name>Unintentional Navigators</Name>
-      <Country code="GB">Great Britain</Country>
+      <Country code="GBR">Great Britain</Country>
     </Organisation>
     <TeamEntryPerson>
       <Person>
@@ -117,7 +117,7 @@
       <Organisation>
         <Id>1</Id>
         <Name>Super Fast Orienteers</Name>
-        <Country code="GB">Great Britain</Country>
+        <Country code="GBR">Great Britain</Country>
       </Organisation>
       <Leg>2</Leg>
       <ControlCard>33354</ControlCard>
@@ -133,7 +133,7 @@
       <Organisation>
         <Id>3</Id>
         <Name>Unintentional Navigators</Name>
-        <Country code="GB">Great Britain</Country>
+        <Country code="GBR">Great Britain</Country>
       </Organisation>
       <Leg>1</Leg>
       <ControlCard>19930</ControlCard>
@@ -149,7 +149,7 @@
       <Organisation>
         <Id>1</Id>
         <Name>Super Fast Orienteers</Name>
-        <Country code="GB">Great Britain</Country>
+        <Country code="GBR">Great Britain</Country>
       </Organisation>
       <Leg>3</Leg>
       <ControlCard>67942</ControlCard>
