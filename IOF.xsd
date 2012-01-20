@@ -1964,7 +1964,7 @@
       <xsd:element name="BibNumber" type="xsd:string" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            The bib number that the members of the team are wearing. If each team member has a unique bib number, use the BibNumber of the PersonStart element instead.
+            The bib number that the members of the team are wearing. If each team member has a unique bib number, use the BibNumber of the TeamMemberStart element.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -2325,6 +2325,13 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="BibNumber" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The bib number that the members of the team are wearing. If each team member has a unique bib number, use the BibNumber of the TeamMemberStart element.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="TeamMemberResult" type="TeamMemberResult" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
@@ -2435,7 +2442,7 @@
         <xsd:complexType mixed="false">
           <xsd:simpleContent>
             <xsd:extension base="xsd:double">
-              <xsd:attribute name="type" use="optional" default="Leg">
+              <xsd:attribute name="type" use="required">
                 <xsd:simpleType>
                   <xsd:restriction base="xsd:NMTOKEN">
                     <xsd:enumeration value="Leg">
@@ -2468,7 +2475,7 @@
         <xsd:complexType mixed="false">
           <xsd:simpleContent>
             <xsd:extension base="xsd:integer">
-              <xsd:attribute name="type" use="optional" default="Leg">
+              <xsd:attribute name="type" use="required">
                 <xsd:simpleType>
                   <xsd:restriction base="xsd:NMTOKEN">
                     <xsd:enumeration value="Leg">
@@ -2509,7 +2516,7 @@
       <xsd:element name="OverallResult" type="OverallResult" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Holds the result after the current leg for the team for a relay event.
+            Holds the result after the current leg for the team.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3315,7 +3322,7 @@
       <xsd:element name="BibNumber" type="xsd:string" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            The bib number of the team member.
+            The bib number that the team member is wearing.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>

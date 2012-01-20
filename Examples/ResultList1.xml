@@ -41,19 +41,19 @@
         <Name>OC Back and Forth</Name>
         <Country code="GBR">Great Britain</Country>
       </Organisation>
-      <Result>
-        <BibNumber>102</BibNumber>
-        <!-- start and finish times are expressed in ISO 8601 format, optionally including time zone information: YYYY-MM-DDThh:mm:ss[.s[s[s]]][((+|-)hh:mm)|Z] -->
-        <!-- for a detailed specification, see http://www.w3.org/TR/xmlschema-2/#dateTime -->
-        <StartTime>2011-07-30T10:00:00+01:00</StartTime>
-        <FinishTime>2011-07-30T10:33:21+01:00</FinishTime>
-        <!-- times are expressed in seconds, use period as decimal separator for fractions of seconds -->
-        <Time>2001</Time>
-        <!-- the position in the result list -->
-        <Position>1</Position>
-        <!-- the result status, see the xml schema file for all status codes -->
-        <Status>OK</Status>
-      </Result>
+      <BibNumber>102</BibNumber>
+      <!-- start and finish times are expressed in ISO 8601 format, optionally including time zone information: YYYY-MM-DDThh:mm:ss[.s[s[s]]][((+|-)hh:mm)|Z] -->
+      <!-- for a detailed specification, see http://www.w3.org/TR/xmlschema-2/#dateTime -->
+      <StartTime>2011-07-30T10:00:00+01:00</StartTime>
+      <FinishTime>2011-07-30T10:33:21+01:00</FinishTime>
+      <!-- times are expressed in seconds, use period as decimal separator for fractions of seconds -->
+      <Time>2001</Time>
+      <!-- time behind the winner -->
+      <TimeBehind>0</TimeBehind>
+      <!-- the position in the result list -->
+      <Position>1</Position>
+      <!-- the result status, see the xml schema file for all status codes -->
+      <Status>OK</Status>
       <!-- the Course element may be used on person result level when not all competitors in the class have been assigned the same course, e.g. when butterfly loops are used -->
       <Course>
         <Id>1</Id>
@@ -149,13 +149,13 @@
         <Name>Bushmen OC</Name>
         <Country code="GBR">Great Britain</Country>
       </Organisation>
-      <Result>
-        <BibNumber>102</BibNumber>
-        <StartTime>2011-07-30T10:03:00+01:00</StartTime>
-        <!-- the finish time is included even if the competitor has not completed his course -->
-        <FinishTime>2011-07-30T10:39:42+01:00</FinishTime>
-        <Status>MissingPunch</Status>
-      </Result>
+      <BibNumber>102</BibNumber>
+      <StartTime>2011-07-30T10:03:00+01:00</StartTime>
+      <!-- the finish time is included even if the competitor has not completed his course -->
+      <FinishTime>2011-07-30T10:39:42+01:00</FinishTime>
+      <!-- the time is included even if the competitor has not completed his course -->
+      <Time>2202</Time>
+      <Status>MissingPunch</Status>
       <Course>
         <Id>2</Id>
         <Name>Men Elite-2</Name>
@@ -224,10 +224,8 @@
         <Name>Doubtful Direction</Name>
         <Country code="GBR">Great Britain</Country>
       </Organisation>
-      <Result>
-        <StartTime>2011-07-30T10:15:00+01:00</StartTime>
-        <Status>DidNotStart</Status>
-      </Result>
+      <StartTime>2011-07-30T10:15:00+01:00</StartTime>
+      <Status>DidNotStart</Status>
       <!-- this competitor has been assigned two fees - adult entry fee and late entry fee - and both of them have been paid -->
       <AssignedFee>
         <Fee>

@@ -33,34 +33,9 @@
         <Name>Forest Vagabonds</Name>
         <Country code="GBR">Great Britain</Country>
       </Organisation>
-      <!-- the overall result -->
-      <Result>
-        <BibNumber>1</BibNumber>
-        <!-- start and finish times are expressed in ISO 8601 format, optionally including time zone information: YYYY-MM-DDThh:mm:ss[.s[s[s]]][((+|-)hh:mm)|Z] -->
-        <!-- for a detailed specification, see http://www.w3.org/TR/xmlschema-2/#dateTime -->
-        <StartTime>2011-07-31T14:00:00+01:00</StartTime>
-        <FinishTime>2011-07-31T15:02:21+01:00</FinishTime>
-        <!-- times are expressed in seconds -->
-        <Time>3741</Time>
-        <Position>1</Position>
-        <Status>OK</Status>
-      </Result>
-      <!-- results after each leg, except for the last leg which is already present in the first Result element -->
-      <Result afterLeg="1">
-        <!-- times are expressed in seconds, use period as decimal separator for fractions of seconds -->
-        <Time>1438</Time>
-        <!-- the position in the result list for the given leg -->
-        <Position>2</Position>
-        <!-- the result status, see the xml schema file for all status codes -->
-        <Status>OK</Status>
-      </Result>
-      <Result afterLeg="2">
-        <Time>2663</Time>
-        <Position>1</Position>
-        <Status>OK</Status>
-      </Result>
+      <BibNumber>1</BibNumber>
 
-      <PersonResult>
+      <TeamMemberResult>
         <Person>
           <Id>3</Id>
           <Name>
@@ -69,22 +44,31 @@
           </Name>
         </Person>
         <Leg>1</Leg>
-        <Result>
-          <BibNumber>1-1</BibNumber>
-          <!-- start and finish times are expressed in ISO 8601 format, optionally including time zone information: YYYY-MM-DDThh:mm:ss[.s[s[s]]][((+|-)hh:mm)|Z] -->
-          <!-- for a detailed specification, see http://www.w3.org/TR/xmlschema-2/#dateTime -->
-          <StartTime>2011-07-31T14:00:00+01:00</StartTime>
-          <FinishTime>2011-07-31T14:23:58+01:00</FinishTime>
-          <!-- times are expressed in seconds, use period as decimal separator for fractions of seconds -->
+        <BibNumber>1-1</BibNumber>
+        <!-- start and finish times are expressed in ISO 8601 format, optionally including time zone information: YYYY-MM-DDThh:mm:ss[.s[s[s]]][((+|-)hh:mm)|Z] -->
+        <!-- for a detailed specification, see http://www.w3.org/TR/xmlschema-2/#dateTime -->
+        <StartTime>2011-07-31T14:00:00+01:00</StartTime>
+        <FinishTime>2011-07-31T14:23:58+01:00</FinishTime>
+        <!-- times are expressed in seconds, use period as decimal separator for fractions of seconds -->
+        <Time>1438</Time>
+        <!-- this is the time behind the fastest competitor on this leg -->
+        <TimeBehind type="Leg">5</TimeBehind>
+        <!-- this is the time behind the fastest of the competitors that have the same course as this team member -->
+        <TimeBehind type="Course">243</TimeBehind>
+        <!-- this is the position among all competitors on this leg -->
+        <Position type="Leg">2</Position>
+        <!-- this is the position among all competitors that have the same course as this team member -->
+        <Position type="Course">2</Position>
+        <!-- the result status, see the xml schema file for all status codes -->
+        <Status>OK</Status>
+        <!-- the overall result after leg 1 for this team -->
+        <OverallResult>
           <Time>1438</Time>
-          <!-- this is the position among all competitors on this leg -->
-          <Position type="Leg">2</Position>
-          <!-- this is the position among all competitors that have the same course as this competitor -->
-          <Position type="Course">2</Position>
-          <!-- the result status, see the xml schema file for all status codes -->
+          <TimeBehind>5</TimeBehind>
+          <Position>2</Position>
           <Status>OK</Status>
-        </Result>
-        <!-- when spreading methods are used, include the course that the runner has been assigned -->
+        </OverallResult>
+        <!-- when spreading methods are used, the course that the runner has been assigned must be included -->
         <Course>
           <Id>1</Id>
           <Name>A</Name>
@@ -133,9 +117,9 @@
             </Fee>
           </AssignedFee>
         </ServiceRequest>
-      </PersonResult>
+      </TeamMemberResult>
       
-      <PersonResult>
+      <TeamMemberResult>
         <Person>
           <Id>4</Id>
           <Name>
@@ -146,15 +130,21 @@
         <Leg>2</Leg>
         <!-- LegOrder is used only when the relay contains parallel legs or when a particular leg allows multiple competitors -->
         <LegOrder>1</LegOrder>
-        <Result>
-          <BibNumber>1-2A</BibNumber>
-          <StartTime>2011-07-31T14:23:58+01:00</StartTime>
-          <FinishTime>2011-07-31T14:44:23+01:00</FinishTime>
-          <Time>1225</Time>
-          <Position type="Leg">1</Position>
-          <Position type="Course">1</Position>
+        <BibNumber>1-2A</BibNumber>
+        <StartTime>2011-07-31T14:23:58+01:00</StartTime>
+        <FinishTime>2011-07-31T14:44:23+01:00</FinishTime>
+        <Time>1225</Time>
+        <TimeBehind type="Leg">0</TimeBehind>
+        <TimeBehind type="Course">0</TimeBehind>
+        <Position type="Leg">1</Position>
+        <Position type="Course">1</Position>
+        <Status>OK</Status>
+        <OverallResult>
+          <Time>2663</Time>
+          <TimeBehind>0</TimeBehind>
+          <Position>1</Position>
           <Status>OK</Status>
-        </Result>
+        </OverallResult>
         <Course>
           <Id>3</Id>
           <Name>C</Name>
@@ -181,9 +171,9 @@
             <TaxableAmount currency="EUR">4</TaxableAmount>
           </Fee>
         </AssignedFee>
-      </PersonResult>
+      </TeamMemberResult>
 
-      <PersonResult>
+      <TeamMemberResult>
         <Person>
           <Id>5</Id>
           <Name>
@@ -193,15 +183,23 @@
         </Person>
         <Leg>2</Leg>
         <LegOrder>2</LegOrder>
-        <Result>
-          <BibNumber>1-2B</BibNumber>
-          <StartTime>2011-07-31T14:23:58+01:00</StartTime>
-          <FinishTime>2011-07-31T14:46:53+01:00</FinishTime>
-          <Time>1375</Time>
-          <Position type="Leg">3</Position>
-          <Position type="Course">3</Position>
+        <BibNumber>1-2B</BibNumber>
+        <StartTime>2011-07-31T14:23:58+01:00</StartTime>
+        <FinishTime>2011-07-31T14:46:53+01:00</FinishTime>
+        <Time>1375</Time>
+        <TimeBehind type="Leg">150</TimeBehind>
+        <TimeBehind type="Course">150</TimeBehind>
+        <Position type="Leg">3</Position>
+        <Position type="Course">3</Position>
+        <Status>OK</Status>
+        <!-- the overall result is for Leg 2, LegOrder 2 -->
+        <!-- teams that don't have a Leg 2, LegOrder 2 are be excluded from the TimeBehind and Position calculation -->
+        <OverallResult>
+          <Time>2813</Time>
+          <TimeBehind>0</TimeBehind>
+          <Position>1</Position>
           <Status>OK</Status>
-        </Result>
+        </OverallResult>
         <Course>
           <Id>3</Id>
           <Name>C</Name>
@@ -227,9 +225,9 @@
             <TaxableAmount currency="EUR">8</TaxableAmount>
           </Fee>
         </AssignedFee>
-      </PersonResult>
+      </TeamMemberResult>
 
-      <PersonResult>
+      <TeamMemberResult>
         <Person>
           <Id>6</Id>
           <Name>
@@ -239,15 +237,21 @@
         </Person>
         <Leg>2</Leg>
         <LegOrder>3</LegOrder>
-        <Result>
-          <BibNumber>1-2C</BibNumber>
-          <StartTime>2011-07-31T14:23:58+01:00</StartTime>
-          <FinishTime>2011-07-31T14:59:01+01:00</FinishTime>
-          <Time>2103</Time>
-          <Position type="Leg">4</Position>
-          <Position type="Course">4</Position>
+        <BibNumber>1-2C</BibNumber>
+        <StartTime>2011-07-31T14:23:58+01:00</StartTime>
+        <FinishTime>2011-07-31T14:59:01+01:00</FinishTime>
+        <Time>2103</Time>
+        <TimeBehind type="Leg">878</TimeBehind>
+        <TimeBehind type="Course">878</TimeBehind>
+        <Position type="Leg">4</Position>
+        <Position type="Course">4</Position>
+        <Status>OK</Status>
+        <OverallResult>
+          <Time>3541</Time>
+          <TimeBehind>0</TimeBehind>
+          <Position>1</Position>
           <Status>OK</Status>
-        </Result>
+        </OverallResult>
         <Course>
           <Id>3</Id>
           <Name>C</Name>
@@ -273,9 +277,9 @@
             <TaxableAmount currency="EUR">4</TaxableAmount>
           </Fee>
         </AssignedFee>
-      </PersonResult>
+      </TeamMemberResult>
 
-      <PersonResult>
+      <TeamMemberResult>
         <Person>
           <Id>7</Id>
           <Name>
@@ -284,15 +288,21 @@
           </Name>
         </Person>
         <Leg>3</Leg>
-        <Result>
-          <BibNumber>1-3</BibNumber>
-          <StartTime>2011-07-31T14:44:23+01:00</StartTime>
-          <FinishTime>2011-07-31T15:02:21+01:00</FinishTime>
-          <Time>1078</Time>
-          <Position type="Leg">1</Position>
-          <Position type="Course">1</Position>
+        <BibNumber>1-3</BibNumber>
+        <StartTime>2011-07-31T14:44:23+01:00</StartTime>
+        <FinishTime>2011-07-31T15:02:21+01:00</FinishTime>
+        <Time>1078</Time>
+        <TimeBehind type="Leg">0</TimeBehind>
+        <TimeBehind type="Course">0</TimeBehind>
+        <Position type="Leg">1</Position>
+        <Position type="Course">1</Position>
+        <Status>OK</Status>
+        <OverallResult>
+          <Time>3741</Time>
+          <TimeBehind>0</TimeBehind>
+          <Position>1</Position>
           <Status>OK</Status>
-        </Result>
+        </OverallResult>
         <Course>
           <Id>2</Id>
           <Name>B</Name>
@@ -318,7 +328,7 @@
             <TaxableAmount currency="EUR">8</TaxableAmount>
           </Fee>
         </AssignedFee>
-      </PersonResult>
+      </TeamMemberResult>
 
       <!-- this fee is specified on team level -->
       <AssignedFee>
@@ -345,26 +355,9 @@
         <Name>Unintentional Navigators</Name>
         <Country code="GBR">Great Britain</Country>
       </Organisation>
-      <Result>
-        <BibNumber>2</BibNumber>
-        <StartTime>2011-07-31T14:00:00+01:00</StartTime>
-        <FinishTime>2011-07-31T15:04:33+01:00</FinishTime>
-        <Time>3873</Time>
-        <Position>2</Position>
-        <Status>OK</Status>
-      </Result>
-      <Result afterLeg="1">
-        <Time>1433</Time>
-        <Position>1</Position>
-        <Status>OK</Status>
-      </Result>
-      <Result afterLeg="2">
-        <Time>2678</Time>
-        <Position>2</Position>
-        <Status>OK</Status>
-      </Result>
+      <BibNumber>2</BibNumber>
 
-      <PersonResult>
+      <TeamMemberResult>
         <Person>
           <Id>8</Id>
           <Name>
@@ -379,15 +372,21 @@
           <Country code="GBR">Great Britain</Country>
         </Organisation>
         <Leg>1</Leg>
-        <Result>
-          <BibNumber>2-1</BibNumber>
-          <StartTime>2011-07-31T14:00:00+01:00</StartTime>
-          <FinishTime>2011-07-31T14:23:53+01:00</FinishTime>
-          <Time>1438</Time>
-          <Position type="Leg">1</Position>
-          <Position type="Course">2</Position>
+        <BibNumber>2-1</BibNumber>
+        <StartTime>2011-07-31T14:00:00+01:00</StartTime>
+        <FinishTime>2011-07-31T14:23:53+01:00</FinishTime>
+        <Time>1433</Time>
+        <TimeBehind type="Leg">0</TimeBehind>
+        <TimeBehind type="Course">355</TimeBehind>
+        <Position type="Leg">1</Position>
+        <Position type="Course">2</Position>
+        <Status>OK</Status>
+        <OverallResult>
+          <Time>1433</Time>
+          <TimeBehind>0</TimeBehind>
+          <Position>1</Position>
           <Status>OK</Status>
-        </Result>
+        </OverallResult>
         <Course>
           <Id>2</Id>
           <Name>B</Name>
@@ -413,9 +412,9 @@
             <TaxableAmount currency="EUR">4</TaxableAmount>
           </Fee>
         </AssignedFee>
-      </PersonResult>
+      </TeamMemberResult>
 
-      <PersonResult>
+      <TeamMemberResult>
         <Person>
           <Id>9</Id>
           <Name>
@@ -430,15 +429,21 @@
         </Organisation>
         <Leg>2</Leg>
         <LegOrder>1</LegOrder>
-        <Result>
-          <BibNumber>2-2A</BibNumber>
-          <StartTime>2011-07-31T14:23:53+01:00</StartTime>
-          <FinishTime>2011-07-31T14:44:38+01:00</FinishTime>
-          <Time>1245</Time>
-          <Position type="Leg">2</Position>
-          <Position type="Course">2</Position>
+        <BibNumber>2-2A</BibNumber>
+        <StartTime>2011-07-31T14:23:53+01:00</StartTime>
+        <FinishTime>2011-07-31T14:44:38+01:00</FinishTime>
+        <Time>1245</Time>
+        <TimeBehind type="Leg">20</TimeBehind>
+        <TimeBehind type="Course">20</TimeBehind>
+        <Position type="Leg">2</Position>
+        <Position type="Course">2</Position>
+        <Status>OK</Status>
+        <OverallResult>
+          <Time>2678</Time>
+          <TimeBehind>15</TimeBehind>
+          <Position>2</Position>
           <Status>OK</Status>
-        </Result>
+        </OverallResult>
         <Course>
           <Id>3</Id>
           <Name>C</Name>
@@ -464,9 +469,9 @@
             <TaxableAmount currency="EUR">8</TaxableAmount>
           </Fee>
         </AssignedFee>
-      </PersonResult>
+      </TeamMemberResult>
 
-      <PersonResult>
+      <TeamMemberResult>
         <Person>
           <Id>10</Id>
           <Name>
@@ -480,15 +485,21 @@
           <Country code="GBR">Great Britain</Country>
         </Organisation>
         <Leg>3</Leg>
-        <Result>
-          <BibNumber>2-3</BibNumber>
-          <StartTime>2011-07-31T14:44:38+01:00</StartTime>
-          <FinishTime>2011-07-31T15:04:33+01:00</FinishTime>
-          <Time>1195</Time>
-          <Position type="Leg">2</Position>
-          <Position type="Course">1</Position>
+        <BibNumber>2-3</BibNumber>
+        <StartTime>2011-07-31T14:44:38+01:00</StartTime>
+        <FinishTime>2011-07-31T15:04:33+01:00</FinishTime>
+        <Time>1195</Time>
+        <TimeBehind type="Leg">117</TimeBehind>
+        <TimeBehind type="Course">0</TimeBehind>
+        <Position type="Leg">2</Position>
+        <Position type="Course">1</Position>
+        <Status>OK</Status>
+        <OverallResult>
+          <Time>3873</Time>
+          <TimeBehind>132</TimeBehind>
+          <Position>2</Position>
           <Status>OK</Status>
-        </Result>
+        </OverallResult>
         <Course>
           <Id>1</Id>
           <Name>A</Name>
@@ -506,7 +517,7 @@
           <ControlCode>100</ControlCode>
           <Time>1149</Time>
         </SplitTime>
-      </PersonResult>
+      </TeamMemberResult>
       <AssignedFee>
         <Fee>
           <Id>2</Id>
@@ -515,6 +526,116 @@
           <TaxableAmount currency="EUR">4</TaxableAmount>
         </Fee>
       </AssignedFee>
-    </TeamResult>    
+    </TeamResult>
+
+    <!-- an example of a team with only one team member, running the first leg -->
+    <TeamResult>
+      <Name>Forest Vagabonds 2</Name>
+      <Organisation>
+        <Id>4</Id>
+        <Name>Forest Vagabonds</Name>
+        <Country code="GBR">Great Britain</Country>
+      </Organisation>
+      <BibNumber>3</BibNumber>
+
+      <TeamMemberResult>
+        <Person>
+          <Id>11</Id>
+          <Name>
+            <Family>Adams</Family>
+            <Given>Brenda</Given>
+          </Name>
+        </Person>
+        <Leg>1</Leg>
+        <BibNumber>3-1</BibNumber>
+        <StartTime>2011-07-31T14:00:00+01:00</StartTime>
+        <FinishTime>2011-07-31T14:25:03+01:00</FinishTime>
+        <Time>1503</Time>
+        <TimeBehind type="Leg">70</TimeBehind>
+        <TimeBehind type="Course">425</TimeBehind>
+        <Position type="Leg">3</Position>
+        <Position type="Course">3</Position>
+        <Status>OK</Status>
+        <OverallResult>
+          <Time>1503</Time>
+          <TimeBehind>70</TimeBehind>
+          <Position>3</Position>
+          <Status>OK</Status>
+        </OverallResult>
+        <Course>
+          <Id>2</Id>
+          <Name>B</Name>
+          <Length>4040</Length>
+        </Course>
+        <SplitTime>
+          <ControlCode>32</ControlCode>
+          <Time>458</Time>
+        </SplitTime>
+        <SplitTime>
+          <ControlCode>34</ControlCode>
+          <Time>918</Time>
+        </SplitTime>
+        <SplitTime>
+          <ControlCode>100</ControlCode>
+          <Time>1461</Time>
+        </SplitTime>
+        <AssignedFee>
+          <Fee>
+            <Id>2</Id>
+            <Name>Youth competitor fee</Name>
+            <Amount currency="EUR">5</Amount>
+            <TaxableAmount currency="EUR">4</TaxableAmount>
+          </Fee>
+        </AssignedFee>
+      </TeamMemberResult>
+
+      <!-- no competitor on 2nd and 3rd leg, but TeamMemberResult elements for these legs must be present anyway -->
+      <TeamMemberResult>
+        <!-- Person element is omitted -->
+        <Leg>2</Leg>
+        <LegOrder>1</LegOrder>
+        <BibNumber>3-2A</BibNumber>
+        <Status>DidNotStart</Status>
+        <OverallResult>
+          <Status>DidNotFinish</Status>
+        </OverallResult>
+        <Course>
+          <Id>3</Id>
+          <Name>C</Name>
+          <Length>3800</Length>
+        </Course>
+        <AssignedFee>
+          <Fee>
+            <Id>1</Id>
+            <Name>Adult competitor fee</Name>
+            <Amount currency="EUR">10</Amount>
+            <TaxableAmount currency="EUR">8</TaxableAmount>
+          </Fee>
+        </AssignedFee>
+      </TeamMemberResult>
+
+      <TeamMemberResult>
+        <Leg>3</Leg>
+        <BibNumber>3-3</BibNumber>
+        <Status>DidNotStart</Status>
+        <OverallResult>
+          <Status>DidNotFinish</Status>
+        </OverallResult>
+        <Course>
+          <Id>1</Id>
+          <Name>A</Name>
+          <Length>4010</Length>
+        </Course>
+      </TeamMemberResult>
+      <AssignedFee>
+        <Fee>
+          <Id>1</Id>
+          <Name>Adult competitor fee</Name>
+          <Amount currency="EUR">10</Amount>
+          <TaxableAmount currency="EUR">8</TaxableAmount>
+        </Fee>
+      </AssignedFee>
+    </TeamResult>
+
   </ClassResult>
 </ResultList>

@@ -32,11 +32,8 @@
         <Country code="GBR">Great Britain</Country>
       </Organisation>
       <BibNumber>1</BibNumber>
-      <!-- start times are expressed in ISO 8601 format, optionally including time zone information: YYYY-MM-DDThh:mm:ss[.s[s[s]]][((+|-)hh:mm)|Z] -->
-      <!-- for a detailed specification, see http://www.w3.org/TR/xmlschema-2/#dateTime -->
-      <StartTime>2011-07-31T14:00:00+01:00</StartTime>
 
-      <PersonStart>
+      <TeamMemberStart>
         <Person>
           <Id>3</Id>
           <Name>
@@ -46,11 +43,14 @@
         </Person>
         <Leg>1</Leg>
         <BibNumber>1-1</BibNumber>
+        <!-- start times are expressed in ISO 8601 format, optionally including time zone information: YYYY-MM-DDThh:mm:ss[.s[s[s]]][((+|-)hh:mm)|Z] -->
+        <!-- for a detailed specification, see http://www.w3.org/TR/xmlschema-2/#dateTime -->
+        <StartTime>2011-07-31T14:00:00+01:00</StartTime>
         <!-- the ControlCard element is to be omitted if the competitor wishes to rent a control card -->
         <ControlCard>54321</ControlCard>
-      </PersonStart>
+      </TeamMemberStart>
 
-      <PersonStart>
+      <TeamMemberStart>
         <Person>
           <Id>4</Id>
           <Name>
@@ -62,10 +62,11 @@
         <!-- LegOrder is used only when the relay contains parallel legs or when a particular leg allows multiple competitors -->
         <LegOrder>1</LegOrder>
         <BibNumber>1-2A</BibNumber>
+        <!-- start time is omitted for this team member, since it is not known in advance -->
         <ControlCard>59476</ControlCard>
-      </PersonStart>
+      </TeamMemberStart>
 
-      <PersonStart>
+      <TeamMemberStart>
         <Person>
           <Id>5</Id>
           <Name>
@@ -77,9 +78,9 @@
         <LegOrder>2</LegOrder>
         <BibNumber>1-2B</BibNumber>
         <ControlCard>96463</ControlCard>
-      </PersonStart>
+      </TeamMemberStart>
 
-      <PersonStart>
+      <TeamMemberStart>
         <Person>
           <Id>6</Id>
           <Name>
@@ -91,9 +92,9 @@
         <LegOrder>3</LegOrder>
         <BibNumber>1-2C</BibNumber>
         <ControlCard>10583</ControlCard>
-      </PersonStart>
+      </TeamMemberStart>
 
-      <PersonStart>
+      <TeamMemberStart>
         <Person>
           <Id>7</Id>
           <Name>
@@ -104,7 +105,7 @@
         <Leg>3</Leg>
         <BibNumber>1-3</BibNumber>
         <ControlCard>68490</ControlCard>
-      </PersonStart>
+      </TeamMemberStart>
     </TeamStart>
 
     <!-- an example of a team where the team members represent different clubs, known as a combination team -->
@@ -123,9 +124,8 @@
         <Country code="GBR">Great Britain</Country>
       </Organisation>
       <BibNumber>2</BibNumber>
-      <StartTime>2011-07-31T14:00:00+01:00</StartTime>
 
-      <PersonStart>
+      <TeamMemberStart>
         <Person>
           <Id>8</Id>
           <Name>
@@ -141,10 +141,11 @@
         </Organisation>
         <Leg>1</Leg>
         <BibNumber>2-1</BibNumber>
+        <StartTime>2011-07-31T14:00:00+01:00</StartTime>
         <ControlCard>33354</ControlCard>
-      </PersonStart>
+      </TeamMemberStart>
 
-      <PersonStart>
+      <TeamMemberStart>
         <Person>
           <Id>9</Id>
           <Name>
@@ -161,25 +162,13 @@
         <LegOrder>1</LegOrder>
         <BibNumber>2-2A</BibNumber>
         <ControlCard>19930</ControlCard>
-      </PersonStart>
+      </TeamMemberStart>
 
-      <PersonStart>
-        <Person>
-          <Id>10</Id>
-          <Name>
-            <Family>Hughes</Family>
-            <Given>Jim</Given>
-          </Name>
-        </Person>
-        <Organisation>
-          <Id>1</Id>
-          <Name>Super Fast Orienteers</Name>
-          <Country code="GBR">Great Britain</Country>
-        </Organisation>
+      <!-- this team has not specified any team member the 3rd leg, but a TeamMemberStart element must be present anyway -->
+      <TeamMemberStart>
         <Leg>3</Leg>
         <BibNumber>2-3</BibNumber>
-        <ControlCard>67942</ControlCard>
-      </PersonStart>
+      </TeamMemberStart>
     </TeamStart>
   </ClassStart>
 </StartList>
