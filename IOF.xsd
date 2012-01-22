@@ -2595,7 +2595,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Position" type="xsd:integer" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="Position" type="xsd:integer" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
             The position in the result list for the person or team that the result belongs to. This element should only be present when the Status element is set to OK.
