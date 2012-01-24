@@ -26,7 +26,7 @@
 <xsd:schema xmlns="http://www.orienteering.org/datastandard/3.0"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             targetNamespace="http://www.orienteering.org/datastandard/3.0"
-            elementFormDefault="qualified" 
+            elementFormDefault="qualified"
             xml:lang="en"
             version="3.0">
   <xsd:annotation>
@@ -59,10 +59,10 @@
             <xsd:element name="Extensions" type="Extensions" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation>
-                  Container element for custom elements from another schema.
+                  Container element for custom elements from other schemas.
                 </xsd:documentation>
               </xsd:annotation>
-            </xsd:element>            
+            </xsd:element>
           </xsd:sequence>
         </xsd:extension>
       </xsd:complexContent>
@@ -84,7 +84,7 @@
             <xsd:element name="Extensions" type="Extensions" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation>
-                  Container element for custom elements from another schema.
+                  Container element for custom elements from other schemas.
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -109,7 +109,7 @@
             <xsd:element name="Extensions" type="Extensions" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation>
-                  Container element for custom elements from another schema.
+                  Container element for custom elements from other schemas.
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -134,7 +134,7 @@
             <xsd:element name="Extensions" type="Extensions" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation>
-                  Container element for custom elements from another schema.
+                  Container element for custom elements from other schemas.
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -162,13 +162,6 @@
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-            <xsd:element name="EventRace" type="EventRace" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation>
-                  The event race that the entry list belongs to, in case of a multi-race event.
-                </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
             <xsd:element name="TeamEntry" type="TeamEntry" minOccurs="0" maxOccurs="unbounded">
               <xsd:annotation>
                 <xsd:documentation>
@@ -186,7 +179,7 @@
             <xsd:element name="Extensions" type="Extensions" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation>
-                  Container element for custom elements from another schema.
+                  Container element for custom elements from other schemas.
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -200,41 +193,24 @@
   <xsd:element name="CourseData">
     <xsd:annotation>
       <xsd:documentation>
-        This element defines all the control and course information for an event or event race.
+        This element defines all the control and course information for an event or race.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:complexType>
       <xsd:complexContent>
         <xsd:extension base="BaseElement">
           <xsd:sequence>
-            <xsd:element name="Event" type="Event"/>
-            <xsd:element name="EventRace" type="EventRace" minOccurs="0"/>
-            <xsd:element name="Map" type="Map" minOccurs="0"/>
-            <xsd:element name="Control" type="Control" minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="Event" type="Event">
               <xsd:annotation>
                 <xsd:documentation>
-                  All controls of the event or event race.
+                  The event that the course data belongs to.
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-            <xsd:element name="CourseClassData" type="CourseClassData" minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="RaceCourseData" type="RaceCourseData" minOccurs="1" maxOccurs="unbounded">
               <xsd:annotation>
                 <xsd:documentation>
-                  The assignment of courses to classes.
-                </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="TeamCourseCombination" type="TeamCourseCombination" minOccurs="0" maxOccurs="unbounded">
-              <xsd:annotation>
-                <xsd:documentation>
-                  The assignment of courses to relay teams.
-                </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="Extensions" type="Extensions" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation>
-                  Container element for custom elements from another schema.
+                  The course data for each race; one element per race in the event.
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -262,13 +238,6 @@
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-            <xsd:element name="EventRace" type="EventRace" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation>
-                  The event race that the start lists belong to, in case of a multi-race event.
-                </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
             <xsd:element name="ClassStart" type="ClassStart" minOccurs="0" maxOccurs="unbounded">
               <xsd:annotation>
                 <xsd:documentation>
@@ -279,7 +248,7 @@
             <xsd:element name="Extensions" type="Extensions" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation>
-                  Container element for custom elements from another schema.
+                  Container element for custom elements from other schemas.
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -307,13 +276,6 @@
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-            <xsd:element name="EventRace" type="EventRace" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation>
-                  The event race that the result list belongs to, in case of a multi-race event.
-                </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
             <xsd:element name="ClassResult" type="ClassResult" minOccurs="0" maxOccurs="unbounded">
               <xsd:annotation>
                 <xsd:documentation>
@@ -324,12 +286,12 @@
             <xsd:element name="Extensions" type="Extensions" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation>
-                  Container element for custom elements from another schema.
+                  Container element for custom elements from other schemas.
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
           </xsd:sequence>
-          <xsd:attribute name="status" default="Complete">
+          <xsd:attribute name="status" use="optional" default="Complete">
             <xsd:annotation>
               <xsd:documentation>
                 The status of the result list.
@@ -367,7 +329,6 @@
   </xsd:element>
 
   <!-- Usage: To transfer service requests from the entry system to the event administration system, or vice versa. -->
-  <!-- TODO: do we really need this? Should be enough to use EntryList/StartList/ResultList, where ServiceRequest elements have now been included. This approach however does not support service requests that are not bound to a specific competitor/team, e.g. club tent places at a relay event. -->
   <xsd:element name="ServiceRequestList">
     <xsd:annotation>
       <xsd:documentation>
@@ -402,7 +363,7 @@
             <xsd:element name="Extensions" type="Extensions" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation>
-                  Container element for custom elements from another schema.
+                  Container element for custom elements from other schemas.
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -439,7 +400,7 @@
             <xsd:element name="Extensions" type="Extensions" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation>
-                  Container element for custom elements from another schema.
+                  Container element for custom elements from other schemas.
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -523,7 +484,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -557,7 +518,7 @@
       <xsd:element name="Organisation" type="Organisation" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            The organisations that the person is member of. 
+            The organisations that the person is member of.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -585,7 +546,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -621,7 +582,7 @@
     </xsd:annotation>
     <xsd:simpleContent>
       <xsd:extension base="xsd:double">
-        <xsd:attribute name="type" use="optional" type="xsd:string"/>
+        <xsd:attribute name="type" type="xsd:string" use="optional"/>
       </xsd:extension>
     </xsd:simpleContent>
   </xsd:complexType>
@@ -684,7 +645,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -763,10 +724,10 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="EventRace" type="EventRace" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="Race" type="Race" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            An event consists of a number of races. The number is equal to the number of times a competitor should start. Most events contain a single race.
+            An event consists of a number of races. The number is equal to the number of times a competitor should start. Most events contain a single race, and this elemend could then be omitted.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -822,7 +783,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -845,14 +806,14 @@
     </xsd:restriction>
   </xsd:simpleType>
 
-  <xsd:complexType name="EventRace">
+  <xsd:complexType name="Race">
     <xsd:annotation>
       <xsd:documentation>
-        An event consists of a number of event races. The number is equal to the number of times a competitor should start.
+        An event consists of a number of races. The number is equal to the number of times a competitor should start.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="EventRaceNumber" type="Id" minOccurs="0">
+      <xsd:element name="RaceNumber" type="xsd:integer">
         <xsd:annotation>
           <xsd:documentation>
             The ordinal number of the race in the multi-race event, starting at 1.
@@ -914,7 +875,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -1022,7 +983,7 @@
       <xsd:element name="Title" type="xsd:string">
         <xsd:annotation>
           <xsd:documentation>
-            A short summary of the information. 
+            A short summary of the information.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -1080,7 +1041,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="EventRaceClass" type="EventRaceClass" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="RaceClass" type="RaceClass" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
             Race-specific information for the class, e.g. course(s) assigned to the class.
@@ -1104,7 +1065,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -1209,6 +1170,45 @@
     <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
   </xsd:complexType>
 
+  <xsd:complexType name="SimpleClass">
+    <xsd:annotation>
+      <xsd:documentation>
+        Defines a class in an event with a limited number of properties.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Id" type="Id" minOccurs="0"/>
+      <xsd:element name="Name" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The name of the class.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ShortName" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The abbreviated name of a class, used when space is limited.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Extensions" type="Extensions" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Container element for custom elements from other schemas.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="numberOfCompetitors" type="xsd:integer" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>
+          The number of competitors in the class. A competitor corresponds to a person (if an individual event) or a team (if a team or relay event).
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+</xsd:complexType>
+
   <xsd:complexType name="ClassType">
     <xsd:annotation>
       <xsd:documentation>
@@ -1273,7 +1273,7 @@
     </xsd:restriction>
   </xsd:simpleType>
 
-  <xsd:simpleType name="EventRaceClassStatus">
+  <xsd:simpleType name="RaceClassStatus">
     <xsd:annotation>
       <xsd:documentation>
         The status of a certain race in the class.
@@ -1325,24 +1325,17 @@
     </xsd:restriction>
   </xsd:simpleType>
 
-  <xsd:complexType name="EventRaceClass">
+  <xsd:complexType name="RaceClass">
     <xsd:annotation>
       <xsd:documentation>
-        Information about a class with respect to an event race.
+        Information about a class with respect to a race.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="EventRace" type="EventRace">
-        <xsd:annotation>
-          <xsd:documentation>
-            The event race that the information applies to.
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
       <xsd:element name="PunchingSystem" type="xsd:string" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            The punching system used for the class at the event race.
+            The punching system used for the class at the race.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -1354,14 +1347,14 @@
         </xsd:annotation>
       </xsd:element>
       <xsd:element name="FirstStart" type="xsd:dateTime" minOccurs="0"/>
-      <xsd:element name="Status" type="EventRaceClassStatus" minOccurs="0">
+      <xsd:element name="Status" type="RaceClassStatus" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
             The status of the race, e.g. if results should be considered invalid due to misplaced constrols.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Course" type="Course" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="Course" type="SimpleCourse" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
             The courses assigned to this class. For a mass-start event or a relay event, there are usually multiple courses per class due to the usage of spreading methods.
@@ -1371,18 +1364,25 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
+    <xsd:attribute name="raceNumber" type="xsd:integer" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>
+          The number of the race that the information belongs to for a multi-race event.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
     <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
   </xsd:complexType>
 
   <xsd:complexType name="Fee">
     <xsd:annotation>
       <xsd:documentation>
-        A fee that applies when entering a class at an event race or ordering a service.
+        A fee that applies when entering a class at a race or ordering a service.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
@@ -1439,14 +1439,14 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
     <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
   </xsd:complexType>
-  
+
   <xsd:complexType name="AssignedFee">
     <xsd:annotation>
       <xsd:documentation>
@@ -1471,7 +1471,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -1535,10 +1535,10 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="EventRace" type="EventRace" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="RaceNumber" type="xsd:integer" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            The event races that the person is taking part in. If not specified, the person takes part in all races.
+            The numbers of the races that the person is taking part in. If not specified, the person takes part in all races.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -1573,7 +1573,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -1617,10 +1617,10 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="EventRace" type="EventRace" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="Race" type="xsd:integer" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            The event races that the team is taking part in. If not specified, team person takes part in all races.
+            The numbers of the races that the team is taking part in. If not specified, team person takes part in all races.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -1655,7 +1655,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -1716,7 +1716,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -1745,7 +1745,7 @@
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
-    <xsd:attribute name="type" default="Normal">
+    <xsd:attribute name="type" use="optional" default="Normal">
       <xsd:annotation>
         <xsd:documentation>
           The type of start time allocation request.
@@ -1807,17 +1807,17 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Course" type="Course" minOccurs="0">
+      <xsd:element name="Course" type="SimpleRaceCourse" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            Defines the course assigned to the class. If courses are unique per competitor, use PersonStart/Course or TeamStart/TeamMemberStart/Course instead.
+            Defines the course assigned to the class. If courses are unique per competitor, use PersonStart/Course or TeamStart/TeamMemberStart/Course instead. One element per race.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="StartName" type="xsd:string" minOccurs="0">
+      <xsd:element name="StartName" type="StartName" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            Defines the name of the start place (e.g. Start 1), if the event has multiple start places.
+            Defines the name of the start place (e.g. Start 1), if the race has multiple start places. One element per race.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -1838,7 +1838,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -1850,6 +1850,26 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+    <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="StartName">
+    <xsd:simpleContent>
+      <xsd:annotation>
+        <xsd:documentation>
+          Defines the name of the start place (e.g. Start 1), if the race has multiple start places.
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute name="raceNumber" type="xsd:integer" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>
+              The number of the race that the information belongs to for a multi-race event.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:simpleContent>
   </xsd:complexType>
 
   <xsd:complexType name="PersonStart">
@@ -1880,6 +1900,31 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="Start" type="PersonRaceStart" minOccurs="1" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            The core start information for the person; one element per race in the event.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Extensions" type="Extensions" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Container element for custom elements from other schemas.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="PersonRaceStart">
+    <xsd:annotation>
+      <xsd:documentation>
+        Start information for a person in a race.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
       <xsd:element name="BibNumber" type="xsd:string" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
@@ -1894,7 +1939,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Course" type="Course" minOccurs="0">
+      <xsd:element name="Course" type="SimpleCourse" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
             Defines the course assigned to the person.
@@ -1925,12 +1970,18 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
-    <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
+    <xsd:attribute name="raceNumber" type="xsd:integer" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>
+          The number of the race that the information belongs to for a multi-race event.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
   
   <xsd:complexType name="TeamStart">
@@ -1992,7 +2043,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -2028,6 +2079,31 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="Start" type="TeamMemberRaceStart" minOccurs="1" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            The core start information for the team member; one element per race in the event.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Extensions" type="Extensions" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Container element for custom elements from other schemas.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="TeamMemberRaceStart">
+    <xsd:annotation>
+      <xsd:documentation>
+        Start information for a team member in a race.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
       <xsd:element name="Leg" type="xsd:integer" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
@@ -2056,7 +2132,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Course" type="Course" minOccurs="0">
+      <xsd:element name="Course" type="SimpleCourse" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
             Defines the course assigned to the team member.
@@ -2087,14 +2163,20 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
-    <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
+    <xsd:attribute name="raceNumber" type="xsd:integer" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>
+          The number of the race that the information belongs to for a multi-race event.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
-
+  
   <xsd:complexType name="ClassResult">
     <xsd:annotation>
       <xsd:documentation>
@@ -2109,10 +2191,10 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Course" type="Course" minOccurs="0">
+      <xsd:element name="Course" type="SimpleRaceCourse" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            Defines the course assigned to the class. If courses are unique per competitor, use PersonResult/Course or TeamResult/TeamMemberResult/Course instead.
+            Defines the course assigned to the class. If courses are unique per competitor, use PersonResult/Course or TeamResult/TeamMemberResult/Course instead. One element per race.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -2133,7 +2215,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -2145,6 +2227,7 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+    <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
   </xsd:complexType>
 
   <xsd:complexType name="PersonResult">
@@ -2175,6 +2258,31 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="Result" type="PersonRaceResult" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            The core result information for the person; one element per race in the event.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Extensions" type="Extensions" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Container element for custom elements from other schemas.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="PersonRaceResult">
+    <xsd:annotation>
+      <xsd:documentation>
+        Result information for a person in a race.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
       <xsd:element name="BibNumber" type="xsd:string" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
@@ -2238,7 +2346,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Course" type="Course" minOccurs="0">
+      <xsd:element name="Course" type="SimpleCourse" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
             Defines the course assigned to the person.
@@ -2287,16 +2395,16 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Extensions" type="Extensions" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>
-            Container element for custom elements from another schema.
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
     </xsd:sequence>
+    <xsd:attribute name="raceNumber" type="xsd:integer" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>
+          The number of the race that the information belongs to for a multi-race event.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
-  
+
   <xsd:complexType name="TeamResult">
     <xsd:annotation>
       <xsd:documentation>
@@ -2356,7 +2464,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -2391,6 +2499,31 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="Result" type="TeamMemberRaceResult" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            The core result information for the person; one element per race in the event.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Extensions" type="Extensions" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Container element for custom elements from other schemas.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="TeamMemberRaceResult">
+    <xsd:annotation>
+      <xsd:documentation>
+        Result information for a person in a race.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
       <xsd:element name="Leg" type="xsd:integer" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
@@ -2520,7 +2653,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Course" type="Course" minOccurs="0">
+      <xsd:element name="Course" type="SimpleCourse" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
             Defines the course assigned to the person.
@@ -2572,11 +2705,18 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
+    <xsd:attribute name="raceNumber" type="xsd:integer" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>
+          The number of the race that the information belongs to for a multi-race event.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
 
   <xsd:complexType name="OverallResult">
@@ -2619,12 +2759,11 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
-    <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
   </xsd:complexType>
 
   <xsd:simpleType name="ResultStatus">
@@ -2773,7 +2912,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -2804,7 +2943,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -2900,7 +3039,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -2952,35 +3091,35 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
     <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
   </xsd:complexType>
-
+  
   <xsd:complexType name="GeoPosition">
     <xsd:annotation>
       <xsd:documentation>
         Defines a geographical position, e.g. of a control.
       </xsd:documentation>
     </xsd:annotation>
-    <xsd:attribute name="lng" use="required" type="xsd:double">
+    <xsd:attribute name="lng" type="xsd:double" use="required">
       <xsd:annotation>
         <xsd:documentation>
           The longitude.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="lat" use="required" type="xsd:double">
+    <xsd:attribute name="lat" type="xsd:double" use="required">
       <xsd:annotation>
         <xsd:documentation>
           The latitude.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="alt" use="optional" type="xsd:double">
+    <xsd:attribute name="alt" type="xsd:double" use="optional">
       <xsd:annotation>
         <xsd:documentation>
           The altitude (elevation above sea level), in meters.
@@ -2996,6 +3135,14 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
+      <xsd:element name="Id" type="Id" minOccurs="0"/>
+      <xsd:element name="Image" type="Image" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The map image.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Scale" type="xsd:double">
         <xsd:annotation>
           <xsd:documentation>
@@ -3020,11 +3167,44 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="Image">
+    <xsd:simpleContent>
+      <xsd:annotation>
+        <xsd:documentation>
+          Defines the image file of a map, either as a link (use the url attribute) or as base64-encoded binary data.
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:extension base="xsd:base64Binary">
+        <xsd:attribute name="url" type="xsd:string" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>
+              The url to the image if it is stored externally (i.e. not as base64-encoded binary data).
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="mediaType" type="xsd:string" use="required">
+          <xsd:annotation>
+            <xsd:documentation>
+              The type of the image file, e.g. image/jpeg. Refer to http://en.wikipedia.org/wiki/Internet_media_type#Type_image for available media types.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="resolution" type="xsd:double" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>
+              The resolution of the image in dpi.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:simpleContent>
   </xsd:complexType>
 
   <xsd:complexType name="MapPosition">
@@ -3033,14 +3213,14 @@
         Defines a position in a map's coordinate system.
       </xsd:documentation>
     </xsd:annotation>
-    <xsd:attribute name="x" use="required" type="xsd:double">
+    <xsd:attribute name="x" type="xsd:double" use="required">
       <xsd:annotation>
         <xsd:documentation>
           The number of units right of the center of the coordinate system.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="y" use="required" type="xsd:double">
+    <xsd:attribute name="y" type="xsd:double" use="required">
       <xsd:annotation>
         <xsd:documentation>
           The number of units below the center of the coordinate system.
@@ -3048,7 +3228,7 @@
       </xsd:annotation>
     </xsd:attribute>
     <!-- TODO: is the unit attribute really necessary? -->
-    <xsd:attribute name="unit" default="mm">
+    <xsd:attribute name="unit" use="optional" default="mm">
       <xsd:annotation>
         <xsd:documentation>
           The type of unit used.
@@ -3075,6 +3255,51 @@
     </xsd:attribute>
   </xsd:complexType>
   
+  <xsd:complexType name="RaceCourseData">
+    <xsd:annotation>
+      <xsd:documentation>
+        This element defines all the control and course information for a race.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Map" type="Map" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            The map(s) used in this race. Usually just one map, but different courses may use different scales and/or areas.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Control" type="Control" minOccurs="2" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            All controls of the race.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CourseClassData" type="CourseClassData" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            The assignment of courses to classes.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Extensions" type="Extensions" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Container element for custom elements from other schemas.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="raceNumber" type="xsd:integer" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>
+          The number of the race that the information belongs to for a multi-race event.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+
   <xsd:complexType name="CourseClassData">
     <xsd:annotation>
       <xsd:documentation>
@@ -3089,7 +3314,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Class" type="Class" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="Class" type="SimpleClass" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
             The classes that are assigned to the courses.
@@ -3128,17 +3353,24 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="CourseControl" type="CourseControl" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="CourseControl" type="CourseControl" minOccurs="2" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
             The controls, including start and finish, that the course is made up of.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="MapId" type="xsd:integer" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The id of the map used for this course.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3151,6 +3383,57 @@
       </xsd:annotation>
     </xsd:attribute>
     <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="SimpleCourse">
+    <xsd:annotation>
+      <xsd:documentation>
+        Defines a course, excluding controls.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Id" type="Id" minOccurs="0"/>
+      <xsd:element name="Name" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The name of the course.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Length" type="xsd:double" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The length of the course, in meters.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Climb" type="xsd:double" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The climb of the course, in meters, along the expected best route choice.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="SimpleRaceCourse">
+    <xsd:annotation>
+      <xsd:documentation>
+        Defines a course for a certain race, excluding controls.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="SimpleCourse">
+        <xsd:attribute name="raceNumber" type="xsd:integer" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>
+              The number of the race that the information belongs to for a multi-race event.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
   </xsd:complexType>
 
   <xsd:complexType name="CourseGroup">
@@ -3177,7 +3460,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3192,10 +3475,10 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="Control" type="Control" minOccurs="1" maxOccurs="unbounded">
+      <xsd:element name="Control" type="xsd:string" minOccurs="1" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            The control(s), without course-specific information. Specifying multiple controls means that the competitor is required to punch one of the controls, but not all of them.
+            The code(s) of the control(s), without course-specific information. Specifying multiple control codes means that the competitor is required to punch one of the controls, but not all of them.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3230,7 +3513,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3281,75 +3564,6 @@
     </xsd:attribute>
   </xsd:complexType>
 
-  <xsd:complexType name="TeamCourseCombination">
-    <xsd:annotation>
-      <xsd:documentation>
-        Defines the courses assigned to the members of a team to support relays using spreading methods.
-      </xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="TeamId" type="xsd:string">
-        <xsd:annotation>
-          <xsd:documentation>
-            Defines the team that courses are assigned to.
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="CourseAssignment" minOccurs="1" maxOccurs="unbounded">
-        <xsd:annotation>
-          <xsd:documentation>
-            Defines the courses that are assigned to the team's legs/members.
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-    </xsd:sequence>
-  </xsd:complexType>
-
-  <xsd:complexType name="CourseAssignment">
-    <xsd:annotation>
-      <xsd:documentation>
-        Defines the courses that are assigned to a team's legs/members.
-      </xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Name" type="xsd:string" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>
-            The name of the team member.
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="BibNumber" type="xsd:string" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>
-            The bib number that the team member is wearing.
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="Leg" type="xsd:integer">
-        <xsd:annotation>
-          <xsd:documentation>
-            The number of the leg.
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="LegOrder" type="xsd:integer" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>
-            Defines the team member's starting order at a parallel relay leg.
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="Course" type="Course">
-        <xsd:annotation>
-          <xsd:documentation>
-            Defines the course that is assigned to this leg.
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-    </xsd:sequence>
-  </xsd:complexType>
-
   <xsd:complexType name="Service">
     <xsd:annotation>
       <xsd:documentation>
@@ -3396,7 +3610,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3410,7 +3624,7 @@
     </xsd:attribute>
     <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
   </xsd:complexType>
-  
+
   <xsd:complexType name="OrganisationServiceRequest">
     <xsd:annotation>
       <xsd:documentation>
@@ -3441,7 +3655,7 @@
       </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
-  
+
   <xsd:complexType name="PersonServiceRequest">
     <xsd:annotation>
       <xsd:documentation>
@@ -3465,7 +3679,7 @@
       </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
-  
+
   <xsd:complexType name="ServiceRequest">
     <xsd:sequence>
       <xsd:element name="Id" type="Id" minOccurs="0"/>
@@ -3507,7 +3721,7 @@
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from another schema.
+            Container element for custom elements from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3518,7 +3732,7 @@
   <xsd:complexType name="Account" mixed="false">
     <xsd:annotation>
       <xsd:documentation>
-        The bank account of an organisation or an event. 
+        The bank account of an organisation or an event.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:simpleContent>
@@ -3641,14 +3855,14 @@
   <xsd:complexType name="Extensions">
     <xsd:annotation>
       <xsd:documentation>
-        Container element that is used to add custom elements from another schema.
+        Container element that is used to add custom elements from other schemas.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
       <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            Custom element from another schema.
+            Custom element from other schemas.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:any>
