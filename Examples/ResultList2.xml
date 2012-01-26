@@ -16,6 +16,10 @@
       <Date>2011-07-30</Date>
       <Time>10:00:00+01:00</Time>
     </StartTime>
+    <EndTime>
+      <Date>2011-07-30</Date>
+      <Time>14:00:00+01:00</Time>
+    </EndTime>
   </Event>
 
   <ClassResult>

@@ -8,15 +8,14 @@
                   iofVersion="3.0"
                   createTime="2011-07-31T22:16:31+01:00"
                   creator="Example Software">
-  <Organisation>
+  <Organisation type="Club">
     <Id>1</Id>
     <Name>Super Fast Orienteers</Name>
     <ShortName>SFO</ShortName>
     <!-- the hierarcical level or type for this organisation -->
-    <Type>Club</Type>
-    <!-- the parent organisation is included, giving the ability to build a hierarchical organisation tree -->
-    <!-- make sure that the organisation that is idref'ed is present in the list -->
-    <ParentOrganisation idref="1002"/>
+    <!-- id the parent organisation is included, giving the ability to build a hierarchical organisation tree -->
+    <!-- make sure that the organisation whose id is referenced is present in the list -->
+    <ParentOrganisationId>1002</ParentOrganisationId>
     <Country code="GBR">Great Britain</Country>
     <!-- the postal address can be included -->
     <Address>
@@ -44,12 +43,11 @@
     </Role>
   </Organisation>
 
-  <Organisation>
+  <Organisation type="Club">
     <Id>2</Id>
     <Name>Bushmen OC</Name>
     <ShortName>BOC</ShortName>
-    <Type>Club</Type>
-    <ParentOrganisation idref="1002"/>
+    <ParentOrganisationId>1002</ParentOrganisationId>
     <Country code="GBR">Great Britain</Country>
     <!-- the postal address can be included -->
     <Address>
@@ -74,11 +72,10 @@
     </Role>
   </Organisation>
 
-  <Organisation>
+  <Organisation type="IOF">
     <Id>1001</Id>
     <Name>International Orienteering Federation</Name>
     <ShortName>IOF</ShortName>
-    <Type>IOF</Type>
     <Address>
       <Street>Radiokatu 20</Street>
       <ZipCode>FIN-00093</ZipCode>
@@ -91,12 +88,11 @@
     <Contact type="FaxNumber">+358 9 348 13 113</Contact>
   </Organisation>
 
-  <Organisation>
+  <Organisation type="NationalFederation">
     <Id>1002</Id>
     <Name>British Orienteering Federation</Name>
     <ShortName>BOF</ShortName>
-    <Type>NationalFederation</Type>
-    <ParentOrganisation idref="1001"/>
+    <ParentOrganisationId>1001</ParentOrganisationId>
     <Country code="GBR">Great Britain</Country>
     <Address>
       <Street>8a Stancliffe House, Whitworth Road, Darley Dale</Street>

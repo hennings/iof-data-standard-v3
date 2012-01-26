@@ -44,7 +44,7 @@
 
   <!-- ROOT ELEMENTS -->
 
-  <!-- Usage: To exchange persons in an orienteering context: including club memberships (optionally as refid), punching card numbers, default classes (optionally as refid), ranking scores etc. Person info contains id, first name, last name, gender, date of birth. -->
+  <!-- Usage: To exchange persons in an orienteering context: including club memberships, punching card numbers, default classes, ranking scores etc. Person info contains id, first name, last name, gender, date of birth. -->
   <xsd:element name="CompetitorList">
     <xsd:annotation>
       <xsd:documentation>
@@ -94,7 +94,7 @@
     </xsd:complexType>
   </xsd:element>
 
-  <!-- Usage: To exchange event fixtures containing "full" event objects between systems. Light organisation objects, no refids. -->
+  <!-- Usage: To exchange event fixtures containing "full" event objects between systems. -->
   <xsd:element name="EventList">
     <xsd:annotation>
       <xsd:documentation>
@@ -144,7 +144,7 @@
     </xsd:complexType>
   </xsd:element>
 
-  <!-- Usage: To exchange entries between systems. Light person and organisation objects, optionally organisations as refids. -->
+  <!-- Usage: To exchange entries between systems. Light person and organisation objects. -->
   <xsd:element name="EntryList">
     <xsd:annotation>
       <xsd:documentation>
@@ -470,7 +470,7 @@
     <xsd:sequence>
       <!-- TODO: allow multiple ids? If not, remove the type attribute of the Id element. -->
       <xsd:element name="Id" type="Id" minOccurs="0" maxOccurs="unbounded"/>
-      <xsd:element name="Name" type="PersonName" minOccurs="0"/>
+      <xsd:element name="Name" type="PersonName"/>
       <xsd:element name="BirthDate" type="xsd:date" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
@@ -595,7 +595,7 @@
     </xsd:annotation>
     <xsd:sequence>
       <xsd:element name="Id" type="Id" minOccurs="0"/>
-      <xsd:element name="Name" type="xsd:string" minOccurs="0">
+      <xsd:element name="Name" type="xsd:string">
         <xsd:annotation>
           <xsd:documentation>
             The full name of the organisation.
@@ -616,11 +616,10 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Type" type="OrganisationType" minOccurs="0" maxOccurs="unbounded"/>
-      <xsd:element name="ParentOrganisation" type="Organisation" minOccurs="0">
+      <xsd:element name="ParentOrganisationId" type="xsd:integer" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            The parent of this organisation, e.g. a regional organisation for a club.
+            The id of the parent of this organisation, e.g. a regional organisation for a club.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -650,27 +649,28 @@
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
+    <xsd:attribute name="type" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>
+          The hierarchical level or type of an organisation.
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:NMTOKEN">
+          <xsd:enumeration value="IOF"/>
+          <xsd:enumeration value="IOFRegion"/>
+          <xsd:enumeration value="NationalFederation"/>
+          <xsd:enumeration value="NationalRegion"/>
+          <xsd:enumeration value="Club"/>
+          <xsd:enumeration value="School"/>
+          <xsd:enumeration value="Company"/>
+          <xsd:enumeration value="Military"/>
+          <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
     <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
   </xsd:complexType>
-
-  <xsd:simpleType name="OrganisationType">
-    <xsd:annotation>
-      <xsd:documentation>
-        The hierarchical level or type of an organisation.
-      </xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:NMTOKEN">
-      <xsd:enumeration value="IOF"/>
-      <xsd:enumeration value="IOFRegion"/>
-      <xsd:enumeration value="NationalFederation"/>
-      <xsd:enumeration value="NationalRegion"/>
-      <xsd:enumeration value="Club"/>
-      <xsd:enumeration value="School"/>
-      <xsd:enumeration value="Company"/>
-      <xsd:enumeration value="Military"/>
-      <xsd:enumeration value="Other"/>
-    </xsd:restriction>
-  </xsd:simpleType>
 
   <xsd:complexType name="Role">
     <xsd:annotation>
@@ -681,14 +681,20 @@
     <xsd:sequence>
       <xsd:element name="Person" type="Person"/>
     </xsd:sequence>
-    <xsd:attribute name="type" type="xsd:string" use="required"/>
+    <xsd:attribute name="type" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>
+          The type of role that the person has.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
 
   <xsd:complexType name="Event" mixed="false">
     <xsd:sequence>
       <xsd:element name="Id" type="Id" minOccurs="0"/>
-      <xsd:element name="Name" type="xsd:string" minOccurs="0"/>
-      <xsd:element name="StartTime" type="DateAndOptionalTime" minOccurs="0">
+      <xsd:element name="Name" type="xsd:string"/>
+      <xsd:element name="StartTime" type="DateAndOptionalTime">
         <xsd:annotation>
           <xsd:documentation>
             The start time for the first starting competitor of the event. If the event contains multiple races, this is the start time for the first starting competitor of the first race.
@@ -820,8 +826,8 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Name" type="xsd:string" minOccurs="0"/>
-      <xsd:element name="StartTime" type="DateAndOptionalTime" minOccurs="0">
+      <xsd:element name="Name" type="xsd:string"/>
+      <xsd:element name="StartTime" type="DateAndOptionalTime">
         <xsd:annotation>
           <xsd:documentation>
             The start time for the first starting competitor of the race.
@@ -1006,7 +1012,7 @@
     </xsd:annotation>
     <xsd:sequence>
       <xsd:element name="Id" type="Id" minOccurs="0"/>
-      <xsd:element name="Name" type="xsd:string" minOccurs="0">
+      <xsd:element name="Name" type="xsd:string">
         <xsd:annotation>
           <xsd:documentation>
             The name of the class.
@@ -1178,7 +1184,7 @@
     </xsd:annotation>
     <xsd:sequence>
       <xsd:element name="Id" type="Id" minOccurs="0"/>
-      <xsd:element name="Name" type="xsd:string" minOccurs="0">
+      <xsd:element name="Name" type="xsd:string">
         <xsd:annotation>
           <xsd:documentation>
             The name of the class.
@@ -1217,7 +1223,7 @@
     </xsd:annotation>
     <xsd:sequence>
       <xsd:element name="Id" type="Id" minOccurs="0"/>
-      <xsd:element name="Name" type="xsd:string" minOccurs="0">
+      <xsd:element name="Name" type="xsd:string">
         <xsd:annotation>
           <xsd:documentation>
             The name of the class type.
@@ -1387,7 +1393,7 @@
     </xsd:annotation>
     <xsd:sequence>
       <xsd:element name="Id" type="Id" minOccurs="0"/>
-      <xsd:element name="Name" type="LanguageString" minOccurs="0">
+      <xsd:element name="Name" type="LanguageString" minOccurs="1" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
             A describing name of the fee, e.g. 'Late entry fee'.
@@ -3332,7 +3338,7 @@
     </xsd:annotation>
     <xsd:sequence>
       <xsd:element name="Id" type="Id" minOccurs="0"/>
-      <xsd:element name="Name" type="xsd:string" minOccurs="0">
+      <xsd:element name="Name" type="xsd:string">
         <xsd:annotation>
           <xsd:documentation>
             The name of the course.
@@ -3411,6 +3417,13 @@
         <xsd:annotation>
           <xsd:documentation>
             The climb of the course, in meters, along the expected best route choice.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="NumberOfControls" type="xsd:integer" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The number of controls in the course, excluding start and finish.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3572,7 +3585,7 @@
     </xsd:annotation>
     <xsd:sequence>
       <xsd:element name="Id" type="Id" minOccurs="0"/>
-      <xsd:element name="Name" type="LanguageString" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="Name" type="LanguageString" minOccurs="1" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
             The name of the service.
