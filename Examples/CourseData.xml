@@ -9,6 +9,10 @@
             creator="Example Software">
   <Event>
     <Name>Example event</Name>
+    <StartTime>
+      <Date>2011-07-30</Date>
+      <Time>10:00:00+01:00</Time>
+    </StartTime>
   </Event>
 
   <!-- one RaceCourseData element per race in the event, single-race events thus use a single RaceCourseData element -->

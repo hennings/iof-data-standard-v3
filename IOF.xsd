@@ -2362,7 +2362,7 @@
       <xsd:element name="SplitTime" type="SplitTime" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            Contains the times at each control of the course. Each control of the competitor's course has to be defined in a SplitTime element, even if the control has not been punched. Start and finish times must not be present as SplitTime elements.
+            Contains the times at each control of the course. Each control of the competitor's course (if known) has to be defined in a SplitTime element, even if the control has not been punched or if the competitor has not started. Start and finish times must not be present as SplitTime elements.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
