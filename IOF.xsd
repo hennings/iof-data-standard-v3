@@ -1651,6 +1651,13 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="ContactInformation" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Contact information (name and e.g. mobile phone number) to a team leader or coach, expressed as plain text.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="EntryTime" type="xsd:dateTime" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
