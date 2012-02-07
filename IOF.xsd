@@ -418,7 +418,7 @@
         The base root element that all root elements extend.
       </xsd:documentation>
     </xsd:annotation>
-    <xsd:attribute name="iofVersion" type="xsd:string" fixed="3.0">
+    <xsd:attribute name="iofVersion" type="xsd:string" use="required" fixed="3.0">
       <xsd:annotation>
         <xsd:documentation>
           The version of the IOF data exchange format that the file conforms to.
