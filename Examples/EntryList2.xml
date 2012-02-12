@@ -13,8 +13,19 @@
       <Date>2011-07-31</Date>
       <Time>10:00:00+01:00</Time>
     </StartTime>
+    <!-- list all classes -->
+    <Class>
+      <Id>1</Id>
+      <Name>Open</Name>
+      <!-- this class has three legs which are listed in order: leg 1 is run by 1 competitor, leg 2 is run by 1 to 3 competitors, and leg 3 is run by 1 competitor -->
+      <Leg/>
+      <Leg maxNumberOfCompetitors="3"/>
+      <Leg/>
+    </Class>
   </Event>
   <TeamEntry>
+    <!-- the entry id for the team, which may be used as a unique key when synchronizing entries and team lineups between systems -->
+    <Id>45</Id>
     <!-- the name of the team, usually including an ordinal number if the club has many teams entered to the same class -->
     <Name>Forest Vagabonds 1</Name>
     <!-- if the team consists of competitors representing multiple clubs, use one Organisation element for each club -->
@@ -87,11 +98,13 @@
     <Class>
       <Id>1</Id>
       <Name>Open</Name>
+      <!-- if the class is defined in Event/Class at the top of the file, leg information is not needed here -->
     </Class>
     <EntryTime>2011-07-12T21:05:58+01:00</EntryTime>
   </TeamEntry>
   <!-- an example of a team where the team members represent different clubs, known as a combination team -->
   <TeamEntry>
+    <Id>82</Id>
     <!-- all clubs making up the combination team are normally present in the team's name -->
     <Name>Super Fast Orienteers / Unintentional Navigators</Name>
     <!-- one Organisation element for each club -->
