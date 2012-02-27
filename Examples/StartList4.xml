@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
   Start list for a relay event containing one class with three legs. The second leg may be run by one to three 
-  competitors per team, of which the fastest one exchanges to the third leg competitor. 
+  competitors per team, of which the fastest one exchanges to the third leg competitor.
+  Course information is not included in this file. A typical area of use is to transfer bib numbers, team names and 
+  competitor names from an event software to a course setting software.
 -->
 <StartList xmlns="http://www.orienteering.org/datastandard/3.0"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -50,12 +52,6 @@
           <!-- start times are expressed in ISO 8601 format, optionally including time zone information: YYYY-MM-DDThh:mm:ss[.s[s[s]]][((+|-)hh:mm)|Z] -->
           <!-- for a detailed specification, see http://www.w3.org/TR/xmlschema-2/#dateTime -->
           <StartTime>2011-07-31T14:00:00+01:00</StartTime>
-          <!-- course information can be included to help connect the team member to her course for course-setting or other event administration purposes -->
-          <Course>
-            <Id>1</Id>
-            <Name>A</Name>
-            <Length>4010</Length>
-          </Course>
           <!-- the ControlCard element is to be omitted if the competitor wishes to rent a control card -->
           <ControlCard>54321</ControlCard>
         </Start>
@@ -74,11 +70,6 @@
           <!-- LegOrder is used only when the relay contains parallel legs or when a particular leg allows multiple competitors -->
           <LegOrder>1</LegOrder>
           <BibNumber>1-2A</BibNumber>
-          <Course>
-            <Id>3</Id>
-            <Name>C</Name>
-            <Length>3800</Length>
-          </Course>
           <!-- start time is omitted for this team member, since it is not known in advance -->
           <ControlCard>59476</ControlCard>
         </Start>
@@ -96,11 +87,6 @@
           <Leg>2</Leg>
           <LegOrder>2</LegOrder>
           <BibNumber>1-2B</BibNumber>
-          <Course>
-            <Id>3</Id>
-            <Name>C</Name>
-            <Length>3800</Length>
-          </Course>
           <ControlCard>96463</ControlCard>
         </Start>
       </TeamMemberStart>
@@ -117,11 +103,6 @@
           <Leg>2</Leg>
           <LegOrder>3</LegOrder>
           <BibNumber>1-2C</BibNumber>
-          <Course>
-            <Id>3</Id>
-            <Name>C</Name>
-            <Length>3800</Length>
-          </Course>
           <ControlCard>10583</ControlCard>
         </Start>
       </TeamMemberStart>
@@ -137,11 +118,6 @@
         <Start>
           <Leg>3</Leg>
           <BibNumber>1-3</BibNumber>
-          <Course>
-            <Id>2</Id>
-            <Name>B</Name>
-            <Length>4040</Length>
-          </Course>
           <ControlCard>68490</ControlCard>
         </Start>
       </TeamMemberStart>
@@ -182,11 +158,6 @@
           <Leg>1</Leg>
           <BibNumber>2-1</BibNumber>
           <StartTime>2011-07-31T14:00:00+01:00</StartTime>
-          <Course>
-            <Id>2</Id>
-            <Name>B</Name>
-            <Length>4040</Length>
-          </Course>
           <ControlCard>33354</ControlCard>
         </Start>
       </TeamMemberStart>
@@ -208,11 +179,6 @@
           <Leg>2</Leg>
           <LegOrder>1</LegOrder>
           <BibNumber>2-2A</BibNumber>
-          <Course>
-            <Id>3</Id>
-            <Name>C</Name>
-            <Length>3800</Length>
-          </Course>
           <ControlCard>19930</ControlCard>
         </Start>
       </TeamMemberStart>
@@ -222,11 +188,6 @@
         <Start>
           <Leg>3</Leg>
           <BibNumber>2-3</BibNumber>
-          <Course>
-            <Id>1</Id>
-            <Name>A</Name>
-            <Length>4010</Length>
-          </Course>
         </Start>
       </TeamMemberStart>
     </TeamStart>

@@ -694,7 +694,7 @@
     <xsd:sequence>
       <xsd:element name="Id" type="Id" minOccurs="0"/>
       <xsd:element name="Name" type="xsd:string"/>
-      <xsd:element name="StartTime" type="DateAndOptionalTime">
+      <xsd:element name="StartTime" type="DateAndOptionalTime" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
             The start time for the first starting competitor of the event. If the event contains multiple races, this is the start time for the first starting competitor of the first race.
@@ -1632,7 +1632,7 @@
       </xsd:element>
       <xsd:element name="AssignedFee" type="AssignedFee" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
-          <xsd:documentation>
+          <xsd:documentation>                                      
             The fees that the team as a whole has to pay when entering the event. In a multi-race event, there is usually one fee for each race. If there are differentated fees for the team members, specify them in the TeamEntryPerson elements.
           </xsd:documentation>
         </xsd:annotation>
@@ -1899,10 +1899,10 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Person" type="Person">
+      <xsd:element name="Person" type="Person" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            The person that the start time belongs to.
+            The person that the start time belongs to. Omit if there is no person assigned to the start time, e.g. a vacant person.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -2011,10 +2011,10 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Name" type="xsd:string">
+      <xsd:element name="Name" type="xsd:string" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            The name of the team, e.g. organisation name and team number for a relay team.
+            The name of the team, e.g. organisation name and team number for a relay team. Omit if the team name is not know, e.g. a vacant team.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3289,10 +3289,10 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="CourseClassData" type="CourseClassData" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="CourseAssignment" type="CourseAssignment" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            The assignment of courses to classes.
+            The assignment of courses to classes and persons.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3313,24 +3313,31 @@
     </xsd:attribute>
   </xsd:complexType>
 
-  <xsd:complexType name="CourseClassData">
+  <xsd:complexType name="CourseAssignment">
     <xsd:annotation>
       <xsd:documentation>
-        Element that connects a number of courses with a number of classes.
+        Element that connects a course with a number of classes and/or persons.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="CourseGroup" type="CourseGroup" minOccurs="1" maxOccurs="unbounded">
+      <xsd:element name="Course" type="Course">
         <xsd:annotation>
           <xsd:documentation>
-            The courses, expressed as course groups.
+            The course.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
       <xsd:element name="Class" type="SimpleClass" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            The classes that are assigned to the courses.
+            The classes that are assigned to the course.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Person" type="PersonCourseAssignment" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            The persons that are assigned to the course.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3349,6 +3356,13 @@
         <xsd:annotation>
           <xsd:documentation>
             The name of the course.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CourseGroup" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The group of forked courses that the course is part of.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3413,6 +3427,13 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="CourseGroup" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The group of forked courses that the course is part of.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Length" type="xsd:double" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
@@ -3456,36 +3477,53 @@
     </xsd:complexContent>
   </xsd:complexType>
 
-  <xsd:complexType name="CourseGroup">
+  <xsd:complexType name="PersonCourseAssignment">
     <xsd:annotation>
       <xsd:documentation>
-        Defines a number of courses that are grouped together, i.e. a number of gaffled courses that may be used for a relay leg.
+        Defines a person in a course-assigning context. At least one of EntryId, BibNumber and TeamName must be present.
+        Persons are matched by:
+        1) BibNumber, and if a relay Leg and LegOrder (if present)
+        2) TeamName, Leg and LegOrder (if present), if a relay
+        3) EntryId
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="Name" type="xsd:string" minOccurs="0">
+      <xsd:element name="EntryId" type="Id" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            The name of the course group.
+            The id corresponding to this person's entry in an EntryList.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Course" type="Course" minOccurs="1" maxOccurs="unbounded">
+      <xsd:element name="BibNumber" type="xsd:string" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            The courses in the course group.
+            The bib number of the person or the team that the person belongs to.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Extensions" type="Extensions" minOccurs="0">
+      <xsd:element name="TeamName" type="xsd:string" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Container element for custom elements from other schemas.
+            The name of the team that the person belongs to.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Leg" type="xsd:integer" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            For relay entries, the number of the leg that the person is taking part in.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="LegOrder" type="xsd:integer" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Defines the person's starting order within a team at a parallel relay leg.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
-    <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
   </xsd:complexType>
 
   <xsd:complexType name="CourseControl">
@@ -3541,7 +3579,7 @@
     <xsd:attribute name="type" use="required">
       <xsd:annotation>
         <xsd:documentation>
-          The type of the control: (ordinary) control, start or finish.
+          The type of the control: (ordinary) control, start, finish, crossing point or end of marked route.
         </xsd:documentation>
       </xsd:annotation>
       <xsd:simpleType>
@@ -3549,6 +3587,8 @@
           <xsd:enumeration value="Control"/>
           <xsd:enumeration value="Start"/>
           <xsd:enumeration value="Finish"/>
+          <xsd:enumeration value="CrossingPoint"/>
+          <xsd:enumeration value="EndOfMarkedRoute"/>
         </xsd:restriction>
       </xsd:simpleType>
     </xsd:attribute>
@@ -3782,6 +3822,13 @@
       <xsd:element name="State" type="xsd:string" minOccurs="0"/>
       <xsd:element name="Country" type="Country"/>
     </xsd:sequence>
+    <xsd:attribute name="type" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>
+          The address type, e.g. visitor address or invoice address.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
     <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
   </xsd:complexType>
 
