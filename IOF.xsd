@@ -3289,6 +3289,13 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="Course" type="Course" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            All courses of the race.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="CourseAssignment" type="CourseAssignment" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
@@ -3316,14 +3323,21 @@
   <xsd:complexType name="CourseAssignment">
     <xsd:annotation>
       <xsd:documentation>
-        Element that connects a course with a number of classes and/or persons.
+        Element that connects a course with a number of classes and/or persons. Courses should be present in the RaceCourseData element and are matched on course name and course family, if present.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="Course" type="Course">
+      <xsd:element name="CourseName" type="xsd:string">
         <xsd:annotation>
           <xsd:documentation>
-            The course.
+            The name of the course.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CourseFamily" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The family or group of forked courses that the course is part of.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3359,10 +3373,10 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="CourseGroup" type="xsd:string" minOccurs="0">
+      <xsd:element name="CourseFamily" type="xsd:string" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            The group of forked courses that the course is part of.
+            The family or group of forked courses that the course is part of.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3427,10 +3441,10 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="CourseGroup" type="xsd:string" minOccurs="0">
+      <xsd:element name="CourseFamily" type="xsd:string" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            The group of forked courses that the course is part of.
+            The family or group of forked courses that the course is part of.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>

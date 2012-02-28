@@ -57,51 +57,114 @@
       <MapPosition unit="mm" x="131" y="157"/>
     </Control>
 
-    <!-- then, create courses and bind them to persons using one or more CourseAssignment elements -->
+    <!-- then, all courses are defined -->
+    <Course>
+      <Name>A</Name>
+      <!-- the course A is part of the 'Open long' course group, which groups the forked courses A and B -->
+      <CourseFamily>Open long</CourseFamily>
+      <!-- course length in meters -->
+      <Length>1770</Length>
+      <!-- course climb in meters -->
+      <Climb>45</Climb>
+      <!-- ordered sequence of controls, including start and finish -->
+      <CourseControl type="Start">
+        <!-- use the control code for normal controls, and for example 'S' and 'F' for start and finish -->
+        <Control>S</Control>
+        <!-- for the start, LegLength is the length in meters from the time start to the start flag -->
+        <LegLength>50</LegLength>
+      </CourseControl>
+      <CourseControl type="Control">
+        <Control>31</Control>
+        <!-- the text printed next to the control circle, usually the control number -->
+        <MapText>1</MapText>
+        <!-- the center of the text relative to the center of the control circle -->
+        <MapTextPosition unit="mm" x="-15" y="8"/>
+        <!-- the length in meters from the previous control to this control -->
+        <LegLength>410</LegLength>
+      </CourseControl>
+      <CourseControl type="Control">
+        <Control>32</Control>
+        <MapText>2</MapText>
+        <MapTextPosition unit="mm" x="11" y="-14"/>
+        <LegLength>360</LegLength>
+      </CourseControl>
+      <CourseControl type="Control">
+        <Control>100</Control>
+        <MapText>3</MapText>
+        <MapTextPosition unit="mm" x="-12" y="12"/>
+        <LegLength>800</LegLength>
+      </CourseControl>
+      <CourseControl type="Finish" >
+        <Control>F</Control>
+        <LegLength>150</LegLength>
+      </CourseControl>
+    </Course>
+
+    <Course>
+      <Name>B</Name>
+      <CourseFamily>Open long</CourseFamily>
+      <Length>1770</Length>
+      <Climb>45</Climb>
+      <CourseControl type="Start">
+        <Control>S</Control>
+        <LegLength>50</LegLength>
+      </CourseControl>
+      <CourseControl type="Control">
+        <Control>31</Control>
+        <MapText>1</MapText>
+        <MapTextPosition unit="mm" x="-15" y="8"/>
+        <LegLength>410</LegLength>
+      </CourseControl>
+      <CourseControl type="Control">
+        <Control>33</Control>
+        <MapText>2</MapText>
+        <MapTextPosition unit="mm" x="11" y="-14"/>
+        <LegLength>360</LegLength>
+      </CourseControl>
+      <CourseControl type="Control">
+        <Control>100</Control>
+        <MapText>3</MapText>
+        <MapTextPosition unit="mm" x="-12" y="12"/>
+        <LegLength>800</LegLength>
+      </CourseControl>
+      <CourseControl type="Finish" >
+        <Control>F</Control>
+        <LegLength>150</LegLength>
+      </CourseControl>
+    </Course>
+
+    <Course>
+      <Name>C</Name>
+      <CourseFamily>Open short</CourseFamily>
+      <Length>1100</Length>
+      <Climb>45</Climb>
+      <CourseControl type="Start">
+        <Control>S</Control>
+        <LegLength>50</LegLength>
+      </CourseControl>
+      <CourseControl type="Control">
+        <Control>31</Control>
+        <MapText>1</MapText>
+        <MapTextPosition unit="mm" x="-15" y="8"/>
+        <LegLength>410</LegLength>
+      </CourseControl>
+      <CourseControl type="Control">
+        <Control>100</Control>
+        <MapText>3</MapText>
+        <MapTextPosition unit="mm" x="-12" y="12"/>
+        <LegLength>540</LegLength>
+      </CourseControl>
+      <CourseControl type="Finish">
+        <Control>F</Control>
+        <LegLength>150</LegLength>
+      </CourseControl>
+    </Course>
+
+    <!-- finally, courses are assigned to persons using one or more CourseAssignment elements -->
     <CourseAssignment>
-      <!-- here, there are three courses that are assigned to team members in two relay teams -->
-      <Course>
-        <Name>A</Name>
-        <!-- the course A is part of the 'Open long' course group, which groups the forked courses A and B -->
-        <CourseGroup>Open long</CourseGroup>
-        <!-- course length in meters -->
-        <Length>1770</Length>
-        <!-- course climb in meters -->
-        <Climb>45</Climb>
-        <!-- ordered sequence of controls, including start and finish -->
-        <CourseControl type="Start">
-          <!-- use the control code for normal controls, and for example 'S' and 'F' for start and finish -->
-          <Control>S</Control>
-          <!-- for the start, LegLength is the length in meters from the time start to the start flag -->
-          <LegLength>50</LegLength>
-        </CourseControl>
-        <CourseControl type="Control">
-          <Control>31</Control>
-          <!-- the text printed next to the control circle, usually the control number -->
-          <MapText>1</MapText>
-          <!-- the center of the text relative to the center of the control circle -->
-          <MapTextPosition unit="mm" x="-15" y="8"/>
-          <!-- the length in meters from the previous control to this control -->
-          <LegLength>410</LegLength>
-        </CourseControl>
-        <CourseControl type="Control">
-          <Control>32</Control>
-          <MapText>2</MapText>
-          <MapTextPosition unit="mm" x="11" y="-14"/>
-          <LegLength>360</LegLength>
-        </CourseControl>
-        <CourseControl type="Control">
-          <Control>100</Control>
-          <MapText>3</MapText>
-          <MapTextPosition unit="mm" x="-12" y="12"/>
-          <LegLength>800</LegLength>
-        </CourseControl>
-        <CourseControl type="Finish" >
-          <Control>F</Control>
-          <LegLength>150</LegLength>
-        </CourseControl>
-      </Course>
-      
+      <!-- the name and optionally the course family of the course to assign -->
+      <CourseName>A</CourseName>
+      <CourseFamily>Open long</CourseFamily>
       <!-- this course is assigned to two team members in the relay teams -->
       <!-- here, team members are identified by BibNumber and Leg, but EntryId or TeamName+Leg could also be used -->
       <Person>
@@ -115,39 +178,8 @@
     </CourseAssignment>
 
     <CourseAssignment>
-      <Course>
-        <Name>B</Name>
-        <CourseGroup>Open long</CourseGroup>
-        <Length>1770</Length>
-        <Climb>45</Climb>
-        <CourseControl type="Start">
-          <Control>S</Control>
-          <LegLength>50</LegLength>
-        </CourseControl>
-        <CourseControl type="Control">
-          <Control>31</Control>
-          <MapText>1</MapText>
-          <MapTextPosition unit="mm" x="-15" y="8"/>
-          <LegLength>410</LegLength>
-        </CourseControl>
-        <CourseControl type="Control">
-          <Control>33</Control>
-          <MapText>2</MapText>
-          <MapTextPosition unit="mm" x="11" y="-14"/>
-          <LegLength>360</LegLength>
-        </CourseControl>
-        <CourseControl type="Control">
-          <Control>100</Control>
-          <MapText>3</MapText>
-          <MapTextPosition unit="mm" x="-12" y="12"/>
-          <LegLength>800</LegLength>
-        </CourseControl>
-        <CourseControl type="Finish" >
-          <Control>F</Control>
-          <LegLength>150</LegLength>
-        </CourseControl>
-      </Course>
-
+      <CourseName>B</CourseName>
+      <CourseFamily>Open long</CourseFamily>
       <Person>
         <BibNumber>101</BibNumber>
         <Leg>3</Leg>
@@ -159,33 +191,8 @@
     </CourseAssignment>
 
     <CourseAssignment>
-      <Course>
-        <Name>C</Name>
-        <CourseGroup>Open short</CourseGroup>
-        <Length>1100</Length>
-        <Climb>45</Climb>
-        <CourseControl type="Start">
-          <Control>S</Control>
-          <LegLength>50</LegLength>
-        </CourseControl>
-        <CourseControl type="Control">
-          <Control>31</Control>
-          <MapText>1</MapText>
-          <MapTextPosition unit="mm" x="-15" y="8"/>
-          <LegLength>410</LegLength>
-        </CourseControl>
-        <CourseControl type="Control">
-          <Control>100</Control>
-          <MapText>3</MapText>
-          <MapTextPosition unit="mm" x="-12" y="12"/>
-          <LegLength>540</LegLength>
-        </CourseControl>
-        <CourseControl type="Finish">
-          <Control>F</Control>
-          <LegLength>150</LegLength>
-        </CourseControl>
-      </Course>
-
+      <CourseName>C</CourseName>
+      <CourseFamily>Open short</CourseFamily>
       <Person>
         <BibNumber>101</BibNumber>
         <Leg>2</Leg>
