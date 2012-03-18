@@ -1036,7 +1036,21 @@
       <xsd:element name="Leg" type="Leg" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            Information about the legs, if the class is a relay class.
+            Information about the legs, if the class is a relay class. One Leg element per leg must be present.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="TeamFee" type="Fee" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            The entry fees for a team as a whole taking part in this class. Use the Fee element to specify a fee for an individual competitor in the team. Use the TeamFee subelement of the RaceClass element to specify a fee on race level.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Fee" type="Fee" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            The entry fees for an individual competitor taking part in the class. Use the TeamFee element to specify a fee for the team as a whole. Use the Fee subelement of the RaceClass element to specify a fee on race level.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -1137,7 +1151,7 @@
     <xsd:attribute name="maxNumberOfCompetitors" type="xsd:integer" use="optional">
       <xsd:annotation>
         <xsd:documentation>
-          The maximum number of competitors that are allowed to take part in the class. A competitor corresponds to a person (if an individual event) or a team (if a team or relay event).
+          The maximum number of competitors that are allowed to take part in the class. A competitor corresponds to a person (if an individual event) or a team (if a team or relay event). If the maximum number of competitors varies between races in a multi-day event, use the maxNumberOfCompetitors attribute in the RaceClass element.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -1213,7 +1227,7 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-</xsd:complexType>
+  </xsd:complexType>
 
   <xsd:complexType name="ClassType">
     <xsd:annotation>
@@ -1345,10 +1359,17 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="TeamFee" type="Fee" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            The entry fees for a team as a whole taking part in this class. Use the Fee element to specify a fee for an individual competitor in the team. Use the TeamFee subelement of the Class element to specify a fee on event level.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Fee" type="Fee" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            The race entry fees for the class.
+            The entry fees for an individual competitor taking part in the race class. Use the TeamFee element to specify a fee for the team as a whole. Use the Fee subelement of the Class element to specify a fee on event level.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -1378,7 +1399,14 @@
     <xsd:attribute name="raceNumber" type="xsd:integer" use="optional">
       <xsd:annotation>
         <xsd:documentation>
-          The number of the race that the information belongs to for a multi-race event.
+          The ordinal number of the race that the information belongs to for a multi-race event, starting at 1.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="maxNumberOfCompetitors" type="xsd:integer" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>
+          The maximum number of competitors that are allowed to take part in the race class. A competitor corresponds to a person (if an individual event) or a team (if a team or relay event). This attribute overrides the maxNumberOfCompetitors attribute in the Class element.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -1450,6 +1478,31 @@
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
+    <xsd:attribute name="type" use="optional" default="Normal">
+      <xsd:annotation>
+        <xsd:documentation>
+          The type of fee.
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:NMTOKEN">
+          <xsd:enumeration value="Normal">
+            <xsd:annotation>
+              <xsd:documentation>
+                The fee is a normal fee (i.e. not a late entry fee).
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="Late">
+            <xsd:annotation>
+              <xsd:documentation>
+                Te fee is a late entry fee.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
     <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
   </xsd:complexType>
 
@@ -1544,7 +1597,7 @@
       <xsd:element name="RaceNumber" type="xsd:integer" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            The numbers of the races that the person is taking part in. If not specified, the person takes part in all races.
+            The ordinal numbers of the races that the person is taking part in, starting at 1. If not specified, the person takes part in all races.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -1632,7 +1685,7 @@
       </xsd:element>
       <xsd:element name="AssignedFee" type="AssignedFee" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
-          <xsd:documentation>                                      
+          <xsd:documentation>
             The fees that the team as a whole has to pay when entering the event. In a multi-race event, there is usually one fee for each race. If there are differentated fees for the team members, specify them in the TeamEntryPerson elements.
           </xsd:documentation>
         </xsd:annotation>
@@ -1877,7 +1930,7 @@
         <xsd:attribute name="raceNumber" type="xsd:integer" use="optional">
           <xsd:annotation>
             <xsd:documentation>
-              The number of the race that the information belongs to for a multi-race event.
+              The ordinal number of the race that the information belongs to for a multi-race event, starting at 1.
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
@@ -1991,12 +2044,12 @@
     <xsd:attribute name="raceNumber" type="xsd:integer" use="optional">
       <xsd:annotation>
         <xsd:documentation>
-          The number of the race that the information belongs to for a multi-race event.
+          The ordinal number of the race that the information belongs to for a multi-race event, starting at 1.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
   </xsd:complexType>
-  
+
   <xsd:complexType name="TeamStart">
     <xsd:annotation>
       <xsd:documentation>
@@ -2184,12 +2237,12 @@
     <xsd:attribute name="raceNumber" type="xsd:integer" use="optional">
       <xsd:annotation>
         <xsd:documentation>
-          The number of the race that the information belongs to for a multi-race event.
+          The ordinal number of the race that the information belongs to for a multi-race event, starting at 1.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
   </xsd:complexType>
-  
+
   <xsd:complexType name="ClassResult">
     <xsd:annotation>
       <xsd:documentation>
@@ -2412,7 +2465,7 @@
     <xsd:attribute name="raceNumber" type="xsd:integer" use="optional">
       <xsd:annotation>
         <xsd:documentation>
-          The number of the race that the information belongs to for a multi-race event.
+          The ordinal number of the race that the information belongs to for a multi-race event, starting at 1.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -2726,7 +2779,7 @@
     <xsd:attribute name="raceNumber" type="xsd:integer" use="optional">
       <xsd:annotation>
         <xsd:documentation>
-          The number of the race that the information belongs to for a multi-race event.
+          The ordinal number of the race that the information belongs to for a multi-race event, starting at 1.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -3000,34 +3053,78 @@
       <xsd:documentation>
         Defines a route, i.e. a number of geographical positions (waypoints) describing a competitor's navigation throughout a course.
 
-        As routes contain large amounts of information, a compact storage format is utilized to keep the overall file size small. A route is stored as a base64-encoded byte sequence of waypoints. A waypoint is represented as described below. All multi-byte data types are stored in big-endian byte order (most significant byte first). Typically, a one-hour route with one-second waypoint recording interval occupies around 40 kilobytes.
+        As routes contain large amounts of information, a compact storage format is utilized to keep the overall file size small. A route is stored as a base64-encoded byte sequence of waypoints. A waypoint is represented as described below. All multi-byte data types are stored in big-endian byte order (most significant byte first). Typically, a one-hour route with one-second waypoint recording interval occupies around 20 kilobytes.
 
+
+        Waypoint header byte
+        ====================
         Each waypoint byte sequence starts with a waypoint header byte:
         Waypoint header byte, bit 1: Waypoint type. 0 for normal waypoint, 1 for interruption waypoint. An interruption waypoint is a waypoint that is the last waypoint before an interruption in the route occurs, e.g. due to a satellite signal receiving failure. The last waypoint of a route should be a normal waypoint, not an interruption waypoint.
-        Waypoint header byte, bit 2: Time storage mode. 0 for full storage mode (6 bytes) or 1 for delta storage mode (2 bytes). For a description of the storage modes, see below.
-        Waypoint header byte, bit 3: Latitude storage mode. 0 for full storage mode (4 bytes) or 1 for delta storage mode (2 bytes). For a description of the storage modes, see below.
-        Waypoint header byte, bit 4: Longitude storage mode. 0 for full storage mode (4 bytes) or 1 for delta storage mode (2 bytes). For a description of the storage modes, see below.
-        Waypoint header byte, bit 5: Altitude presence. 0 if an altitude value is not present, 1 if it is present.
-        Waypoint header byte, bit 6: Altitude storage mode. 0 for full storage mode (3 bytes) or 1 for delta storage mode (1 byte). For a description of the storage modes, see below. Set to 0 if altitude is not present.
+        Waypoint header byte, bits 2 and 3: Time storage mode. For a description of the time storage modes, see below.
+        Bit 2   Bit 3   Time storage mode
+        0      0      full storage mode (6 bytes)
+        1      0      milliseconds delta storage mode (2 bytes)
+        0      1      seconds delta storage mode (1 byte)
+        Waypoint header byte, bits 4 and 5: Position storage mode (latitude, longitude, and altitude (if present)). For a description of the position storage modes, see below.
+        Bit 4   Bit 5   Position storage mode
+        0      0      full storage mode (4 + 4 (+ 3) bytes for latitude, longitude and altitude (if present))
+        1      0      big delta delta storage mode (2 + 2 (+ 1) bytes)
+        0      1      small delta storage mode (1 + 1 (+ 1) bytes)
+        Waypoint header byte, bit 6: Altitude presence. 0 if an altitude value is not present, 1 if it is present.
         Waypoint header byte, bit 7: Unused, always 0.
         Waypoint header byte, bit 8: Unused, always 0.
 
-        After the waypoint byte comes the time byte sequence. Depending on the time storage mode defined in the waypoint header, the time byte sequence is either 6 bytes (full) or 2 bytes (delta) long.
-        Full storage mode: The following 6 bytes are an unsigned 48-bit integer defining the waypoint's time as the number of milliseconds (1/1000 seconds) since January 1, 1900, 00:00:00 UTC.
-        Delta storage mode: The following 2 bytes are an unsigned 16-bit integer defining the waypoint's time as the number of milliseconds to add to the last waypoint's time.
-        Consequently, delta storage mode is used when the waypoint's time is less than 65.536 seconds later than the last waypoint's time. The time of the first waypoint of a route is always stored in full storage mode.
 
-        Next, the latitude byte sequence appears. Depending on the latitude storage mode defined in the waypoint header, the latitude byte sequence is either 4 bytes (full) or 2 bytes (delta) long.
-        Full storage mode: The following 4 bytes are a signed 32-bit integer defining the waypoint's latitude as microdegrees (1/1000000 degrees) relative to the equator. A negative value implies a latitude south of the equator. A microdegree is approximately equivalent to 0.1 meters.
-        Delta storage mode: The following 2 bytes are a signed 16-bit integer defining the waypoint's latitude as the number of microdegrees to add to the last waypoint's latitude.
-        Consequently, delta storage mode is used when the waypoint's latitude differs less than -0.032768 to 0.032767 degrees from the last waypoint's latitude. The latitude of the first waypoint of a route is always stored in full storage mode.
+        Time byte sequence
+        ==================
+        After the waypoint byte comes the time byte sequence. Depending on the time storage mode defined in the waypoint header, the time byte sequence is either 6 bytes (full), 2 bytes (milliseconds delta) or 1 byte (seconds delta) long.
 
-        Next, the longitude byte sequence appears. It works in analogy with the latitude byte sequence. The longitude is relative to the Greenwich meridian, and a negative value implies a longitude west of the Greenwich meridian. A microdegree is approximately equivalent to 0.1 meters at the equator and infinitely small at the poles.
+        Full storage mode
+        -----------------
+        The following 6 bytes are an unsigned 48-bit integer defining the waypoint's time as the number of milliseconds (1/1000 seconds) since January 1, 1900, 00:00:00 UTC.
 
-        If the altitude presence bit in the waypoint header bit is set to 1, the altitude comes next. Depending on the altitude storage mode defined in the waypoint header, the altitude byte sequence is either 3 bytes (full) or 1 byte (delta) long.
-        Full storage mode: The following 3 bytes are a signed 24-bit integer defining the waypoint's altitude as decimeters (1/10 meters) relative to the sea level.
-        Delta storage mode: The following byte is a signed 8-bit integer defining the waypoint's altitude as the number of decimeters to add to the last waypoint's altitude.
-        Consequently, delta storage mode is used when the waypoint's altitude differs less than -12.8 to 12.7 meters from the last waypoint's altitude. The altitude of the first waypoint of a route is always stored in full storage mode.
+        Milliseconds delta storage mode
+        -------------------------------
+        The following 2 bytes are an unsigned 16-bit integer defining the waypoint's time as the number of milliseconds to add to the last waypoint's time.
+
+        Seconds delta storage mode
+        --------------------------
+        The following byte is an unsigned 8-bit integer defining the waypoint's time as the number of seconds to add to the last waypoint's time. This storage mody can only be used when the difference to the last waypoint's time is an integer value.
+
+        Consequently:
+        - seconds delta storage mode is used when the waypoint's time is less than 256 seconds later than the last waypoint's time, and the difference between the times is an integer value.
+        - milliseconds delta storage mode is used when the waypoint's time is less than 65.536 seconds later than the last waypoint's time
+        - otherwise, full storage mode is used
+        The time of the first waypoint of a route is always stored in full storage mode.
+
+
+        Position byte sequence
+        ======================
+        Next, the position byte sequence appears: latitude, longitude and (if present) altitude bytes. Depending on the position storage mode defined in the waypoint header, the position byte sequence is either 4 + 4 (+ 3) bytes (full), 2 + 2 (+ 1) bytes (big delta) or 1 + 1 (+ 1) bytes (small delta) long.
+
+        Full storage mode
+        -----------------
+        The first 4 bytes are a signed 32-bit integer defining the waypoint's latitude as microdegrees (1/1000000 degrees) relative to the equator. A negative value implies a latitude south of the equator. A microdegree is approximately equivalent to 0.1 meters.
+        The following 4 bytes are a signed 32-bit integer defining the waypoint's latitude as microdegrees (1/1000000 degrees) relative to the Greenwich meridian. A negative value implies a longitude west of the Greenwich meridian. A microdegree is approximately equivalent to 0.1 meters at the equator and infinitely small at the poles.
+        If the altitude presence bit in the waypoint header bit is set to 1, the following 3 bytes are a signed 24-bit integer defining the waypoint's altitude as decimeters (1/10 meters) relative to the sea level.
+
+        Big delta storage mode
+        ----------------------
+        The first 2 bytes are a signed 16-bit integer defining the waypoint's latitude as the number of microdegrees to add to the last waypoint's latitude.
+        The following 2 bytes are a signed 16-bit integer defining the waypoint's longitude as the number of microdegrees to add to the last waypoint's longitude.
+        If the altitude presence bit in the waypoint header bit is set to 1, the following byte is a signed 8-bit integer defining the waypoint's altitude as the number of decimeters to add to the last waypoint's altitude.
+
+        Small delta storage mode
+        ----------------------
+        The first byte is a signed 8-bit integer defining the waypoint's latitude as the number of microdegrees to add to the last waypoint's latitude.
+        The following byte is a signed 8-bit integer defining the waypoint's longitude as the number of microdegrees to add to the last waypoint's longitude.
+        If the altitude presence bit in the waypoint header bit is set to 1, the following byte is a signed 8-bit integer defining the waypoint's altitude as the number of decimeters to add to the last waypoint's altitude.
+
+        Consequently:
+        - small delta storage mode is used when the waypoint's latitude and longitude is within -0.000128 to 0.000127 degrees from the last waypoint's latitude, and when the altitude is not present or is within -12.8 to 12.7 meters from the last waypoint's altitude
+        - big delta storage mode is used when the waypoint's latitude and longitude is within -0.032768 to 0.032767 degrees from the last waypoint's latitude, and when the altitude is not present or is within -12.8 to 12.7 meters from the last waypoint's altitude
+        - otherwise, full storage mode is used
+        The position of the first waypoint of a route is always stored in full storage mode.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:simpleContent>
@@ -3111,7 +3208,7 @@
     </xsd:sequence>
     <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
   </xsd:complexType>
-  
+
   <xsd:complexType name="GeoPosition">
     <xsd:annotation>
       <xsd:documentation>
@@ -3267,7 +3364,7 @@
       </xsd:simpleType>
     </xsd:attribute>
   </xsd:complexType>
-  
+
   <xsd:complexType name="RaceCourseData">
     <xsd:annotation>
       <xsd:documentation>
@@ -3314,7 +3411,7 @@
     <xsd:attribute name="raceNumber" type="xsd:integer" use="optional">
       <xsd:annotation>
         <xsd:documentation>
-          The number of the race that the information belongs to for a multi-race event.
+          The ordinal number of the race that the information belongs to for a multi-race event, starting at 1.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -3483,7 +3580,7 @@
         <xsd:attribute name="raceNumber" type="xsd:integer" use="optional">
           <xsd:annotation>
             <xsd:documentation>
-              The number of the race that the information belongs to for a multi-race event.
+              The ordinal number of the race that the information belongs to for a multi-race event, starting at 1.
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
@@ -3636,6 +3733,7 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+    <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
   </xsd:complexType>
 
   <xsd:complexType name="Service">
@@ -3830,11 +3928,11 @@
     </xsd:annotation>
     <xsd:sequence>
       <xsd:element name="CareOf" type="xsd:string" minOccurs="0"/>
-      <xsd:element name="Street" type="xsd:string"/>
+      <xsd:element name="Street" type="xsd:string" minOccurs="0"/>
       <xsd:element name="ZipCode" type="xsd:string" minOccurs="0"/>
-      <xsd:element name="City" type="xsd:string"/>
+      <xsd:element name="City" type="xsd:string" minOccurs="0"/>
       <xsd:element name="State" type="xsd:string" minOccurs="0"/>
-      <xsd:element name="Country" type="Country"/>
+      <xsd:element name="Country" type="Country" minOccurs="0"/>
     </xsd:sequence>
     <xsd:attribute name="type" type="xsd:string" use="optional">
       <xsd:annotation>
