@@ -2,7 +2,11 @@
 <!-- 
   Start list for an individual multi-race event containing two races.
 -->
-<StartList iofVersion="3.0" createTime="2011-07-20T12:16:31+02:00" creator="Example Software" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.orienteering.org/datastandard/3.0" xmlns:lang="en" xsi:schemaLocation="http://www.orienteering.org/datastandard/3.0 D:/IOF/DataStandard/trunk/IOF.xsd">
+<StartList xmlns="http://www.orienteering.org/datastandard/3.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           iofVersion="3.0"
+           createTime="2011-07-20T12:16:31+02:00"
+           creator="Example Software">
   <Event>
     <Name>Example event</Name>
     <StartTime>

@@ -1388,6 +1388,13 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="OnlineControl" type="Control" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            The controls that are online controls for this class.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
@@ -3181,6 +3188,13 @@
         <xsd:annotation>
           <xsd:documentation>
             The code of the control.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Name" type="LanguageString" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            The name of the control, used for e.g. online controls ('spectator control', 'prewarning').
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
