@@ -641,6 +641,13 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="Logotype" type="Image" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            The logotype for the organisation. Multiple logotypes may be included; in this case, make sure to include width and height attributes.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
@@ -705,6 +712,20 @@
         <xsd:annotation>
           <xsd:documentation>
             The expected finish time for the last finishing competitor of the event. If the event contains multiple races, this is the expected finish time for the last finishing competitor of the last race.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Status" type="EventStatus" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The status of the event. If the event is a multi-race event, and status is set per race, use the Status element of the Race element.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Classification" type="EventClassification" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The classification or level of the event. If the event is a multi-race event, and classification is set per race, use the Classification element of the Race element.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -812,6 +833,53 @@
     </xsd:restriction>
   </xsd:simpleType>
 
+  <xsd:simpleType name="EventStatus">
+    <xsd:restriction base="xsd:NMTOKEN">
+      <xsd:enumeration value="Planned">
+        <xsd:annotation>
+          <xsd:documentation>
+            The event or race is on a planning stadium and has not been submitted to any sanctioning body.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="Applied">
+        <xsd:annotation>
+          <xsd:documentation>
+            The organiser has submitted the event to the relevant sanctioning body.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="Proposed">
+        <xsd:annotation>
+          <xsd:documentation>
+            The organiser has bid on hosting the event or race as e.g. a championship.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="Sanctioned">
+        <xsd:annotation>
+          <xsd:documentation>
+            The event oc race meets the relevant requirements and will happen.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="Canceled">
+        <xsd:annotation>
+          <xsd:documentation>
+            The event or race has been canceled, e.g. due to weather conditions.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="Rescheduled">
+        <xsd:annotation>
+          <xsd:documentation>
+            The date of the event or race has changed. A new Event or Race element should be created in additin to the already existing element.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+
   <xsd:complexType name="Race">
     <xsd:annotation>
       <xsd:documentation>
@@ -826,7 +894,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Name" type="xsd:string"/>
+      <xsd:element name="Name" type="xsd:string" minOccurs="0"/>
       <xsd:element name="StartTime" type="DateAndOptionalTime">
         <xsd:annotation>
           <xsd:documentation>
@@ -841,7 +909,20 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Classification" type="RaceClassification" minOccurs="0"/>
+      <xsd:element name="Status" type="EventStatus" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The status of the race. This element overrides the Status element of the parent Event element.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Classification" type="EventClassification" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The classification or level of the race. This element overrides the Classification element of the parent Event element.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Position" type="GeoPosition" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
@@ -889,7 +970,7 @@
     <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
   </xsd:complexType>
 
-  <xsd:simpleType name="RaceClassification">
+  <xsd:simpleType name="EventClassification">
     <xsd:restriction base="xsd:NMTOKEN">
       <xsd:enumeration value="International"/>
       <xsd:enumeration value="National"/>
@@ -1743,7 +1824,13 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="Person" type="Person"/>
+      <xsd:element name="Person" type="Person" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The person. Omit if the person is not known at the moment, but for example the control card is known.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Organisation" type="Organisation" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
@@ -3302,7 +3389,7 @@
     <xsd:simpleContent>
       <xsd:annotation>
         <xsd:documentation>
-          Defines the image file of a map, either as a link (use the url attribute) or as base64-encoded binary data.
+          Defines an image file, either as a link (use the url attribute) or as base64-encoded binary data.
         </xsd:documentation>
       </xsd:annotation>
       <xsd:extension base="xsd:base64Binary">
@@ -3317,6 +3404,20 @@
           <xsd:annotation>
             <xsd:documentation>
               The type of the image file, e.g. image/jpeg. Refer to http://en.wikipedia.org/wiki/Internet_media_type#Type_image for available media types.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="width" type="xsd:integer" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>
+              The width of the image in pixels.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="height" type="xsd:integer" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>
+              The height of the image in pixels.
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
