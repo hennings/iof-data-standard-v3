@@ -3706,10 +3706,10 @@
   <xsd:complexType name="PersonCourseAssignment">
     <xsd:annotation>
       <xsd:documentation>
-        Defines a person in a course-assigning context. At least one of EntryId, BibNumber and TeamName must be present.
+        Defines a person in a course-assigning context. At least one of EntryId, BibNumber and (ClassName+TeamName) must be present.
         Persons are matched by:
         1) BibNumber, and if a relay Leg and LegOrder (if present)
-        2) TeamName, Leg and LegOrder (if present), if a relay
+        2) ClassName+TeamName, and if a relay Leg and LegOrder (if present)
         3) EntryId
       </xsd:documentation>
     </xsd:annotation>
@@ -3725,6 +3725,13 @@
         <xsd:annotation>
           <xsd:documentation>
             The bib number of the person or the team that the person belongs to.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ClassName" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The name of the class that the person's team belongs to.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>

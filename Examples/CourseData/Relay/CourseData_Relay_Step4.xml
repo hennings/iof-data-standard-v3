@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- 
-  Course definitions and assignment to team members in a relay event.
+  Course definitions and assignment to individual competitors in a relay event.
 -->
 <CourseData xmlns="http://www.orienteering.org/datastandard/3.0"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -160,19 +160,18 @@
       </CourseControl>
     </Course>
 
-    <!-- if courses are assigned to classes and/or persons in the exporting software, use one or more CourseAssignment elements to represent this assignment -->
+    <!-- The CourseAssignment elements are used to assign courses to team members -->
     <CourseAssignment>
       <!-- the name and optionally the course family of the course to assign -->
       <CourseName>A</CourseName>
       <CourseFamily>Open long</CourseFamily>
-      <!-- this course is assigned to two team members in the relay teams -->
-      <!-- here, team members are identified by BibNumber and Leg, but EntryId or TeamName+Leg could also be used -->
+      <!-- this course are assigned to two runners; the one with bib number 1 and leg 1, and the one with bib number 2 and leg 3 -->
       <Person>
-        <BibNumber>101</BibNumber>
+        <BibNumber>1</BibNumber>
         <Leg>1</Leg>
       </Person>
       <Person>
-        <BibNumber>102</BibNumber>
+        <BibNumber>2</BibNumber>
         <Leg>3</Leg>
       </Person>
     </CourseAssignment>
@@ -181,11 +180,11 @@
       <CourseName>B</CourseName>
       <CourseFamily>Open long</CourseFamily>
       <Person>
-        <BibNumber>101</BibNumber>
+        <BibNumber>1</BibNumber>
         <Leg>3</Leg>
       </Person>
       <Person>
-        <BibNumber>102</BibNumber>
+        <BibNumber>2</BibNumber>
         <Leg>1</Leg>
       </Person>
     </CourseAssignment>
@@ -194,12 +193,24 @@
       <CourseName>C</CourseName>
       <CourseFamily>Open short</CourseFamily>
       <Person>
-        <BibNumber>101</BibNumber>
+        <BibNumber>1</BibNumber>
         <Leg>2</Leg>
+        <LegOrder>1</LegOrder>
       </Person>
       <Person>
-        <BibNumber>102</BibNumber>
+        <BibNumber>1</BibNumber>
         <Leg>2</Leg>
+        <LegOrder>2</LegOrder>
+      </Person>
+      <Person>
+        <BibNumber>1</BibNumber>
+        <Leg>2</Leg>
+        <LegOrder>3</LegOrder>
+      </Person>
+      <Person>
+        <BibNumber>2</BibNumber>
+        <Leg>2</Leg>
+        <LegOrder>1</LegOrder>
       </Person>
     </CourseAssignment>
   </RaceCourseData>
