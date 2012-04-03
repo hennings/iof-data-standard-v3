@@ -89,7 +89,7 @@
     </Course>
 
 
-    <!-- finally, courses are assigned to classes using one or more CourseAssignment elements -->
+    <!-- if courses are assigned to classes and/or persons in the exporting software, use one or more CourseAssignment elements to represent this assignment -->
     <CourseAssignment>
       <!-- the name and optionally the course family of the course to assign -->
       <CourseName>A</CourseName>
