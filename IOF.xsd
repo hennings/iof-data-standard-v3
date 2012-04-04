@@ -1519,14 +1519,28 @@
       <xsd:element name="Amount" type="Amount" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            The fee amount, optionally including currency code.
+            The fee amount, optionally including currency code. This element must not be present if a Percentage element exists.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
       <xsd:element name="TaxableAmount" type="Amount" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            The fee amount that is taxable, i.e. considered when calculating taxes for an event.
+            The fee amount that is taxable, i.e. considered when calculating taxes for an event. This element must not be present if a Percentage element exists, or if an Amount element does not exist.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Percentage" type="xsd:double" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The percentage to increase or decrease already existing fees in a fee list with. This element must not be present if an Amount element exists.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="TaxablePercentage" type="xsd:double" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The percentage to increase or decrease already existing taxable fees in a fee list with. This element must not be present if an Amount element exists, or if a Percentage element does not exist.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3219,6 +3233,8 @@
         - big delta storage mode is used when the waypoint's latitude and longitude is within -0.032768 to 0.032767 degrees from the last waypoint's latitude, and when the altitude is not present or is within -12.8 to 12.7 meters from the last waypoint's altitude
         - otherwise, full storage mode is used
         The position of the first waypoint of a route is always stored in full storage mode.
+
+        Code libraries for reading and writing route data is found in http://code.google.com/p/iofdatastandard/source/browse/trunk/Libraries.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:simpleContent>
