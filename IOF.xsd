@@ -873,7 +873,7 @@
       <xsd:enumeration value="Rescheduled">
         <xsd:annotation>
           <xsd:documentation>
-            The date of the event or race has changed. A new Event or Race element should be created in additin to the already existing element.
+            The date of the event or race has changed. A new Event or Race element should be created in addition to the already existing element.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:enumeration>
