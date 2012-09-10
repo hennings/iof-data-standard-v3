@@ -203,23 +203,19 @@
   
 
     <!-- if courses are assigned to classes in the exporting software, use one or more CourseAssignment elements to represent this assignment -->
-    <CourseAssignment>
-      <!-- the name and optionally the course family of the course to assign -->
+    <PersonCourseAssignment>
+      <!-- the competitor with bib number 101 is assigned the course A in the course family Open long -->
+      <BibNumber>101</BibNumber>
       <CourseName>A</CourseName>
       <CourseFamily>Open long</CourseFamily>
-      <!-- this course is assigned to one competitor, the one with bib number 101 -->
-      <Person>
-        <BibNumber>101</BibNumber>
-      </Person>
-    </CourseAssignment>
+    </PersonCourseAssignment>
 
-    <CourseAssignment>
+    <PersonCourseAssignment>
+      <!-- the competitor with bib number 102 is assigned the course B in the course family Open long -->
+      <BibNumber>102</BibNumber>
       <CourseName>B</CourseName>
       <CourseFamily>Open long</CourseFamily>
-      <Person>
-        <BibNumber>102</BibNumber>
-      </Person>
-    </CourseAssignment>
-    
+    </PersonCourseAssignment>
+
   </RaceCourseData>
 </CourseData>

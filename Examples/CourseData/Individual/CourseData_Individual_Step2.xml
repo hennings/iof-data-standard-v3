@@ -202,30 +202,22 @@
     </Course>
   
 
-    <!-- if courses are assigned to classes in the exporting software, use one or more CourseAssignment elements to represent this assignment -->
-    <CourseAssignment>
-      <!-- the name and optionally the course family of the course to assign -->
+    <!-- if courses are assigned to classes in the exporting software, use one or more ClassCourseAssignment elements to represent this assignment -->
+    <ClassCourseAssignment>
+      <!-- The courses A and B in the Open long course family are assigned to Men Open -->
+      <ClassName>Men Open</ClassName>
       <CourseName>A</CourseName>
-      <CourseFamily>Open long</CourseFamily>
-      <!-- this course is assigned to two classes -->
-      <Class>
-        <Name>Men Open</Name>
-      </Class>
-      <Class>
-        <Name>Women Open</Name>
-      </Class>
-    </CourseAssignment>
-
-    <CourseAssignment>
       <CourseName>B</CourseName>
       <CourseFamily>Open long</CourseFamily>
-      <Class>
-        <Name>Men Open</Name>
-      </Class>
-      <Class>
-        <Name>Women Open</Name>
-      </Class>
-    </CourseAssignment>
-    
+    </ClassCourseAssignment>
+
+    <ClassCourseAssignment>
+      <!-- The courses A and B in the Open long course family are assigned to Women Open -->
+      <ClassName>Women Open</ClassName>
+      <CourseName>A</CourseName>
+      <CourseName>B</CourseName>
+      <CourseFamily>Open long</CourseFamily>
+    </ClassCourseAssignment>
+
   </RaceCourseData>
 </CourseData>

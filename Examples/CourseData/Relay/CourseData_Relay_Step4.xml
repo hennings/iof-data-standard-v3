@@ -160,58 +160,73 @@
       </CourseControl>
     </Course>
 
-    <!-- The CourseAssignment elements are used to assign courses to team members -->
-    <CourseAssignment>
-      <!-- the name and optionally the course family of the course to assign -->
-      <CourseName>A</CourseName>
-      <CourseFamily>Open long</CourseFamily>
-      <!-- this course are assigned to two runners; the one with bib number 1 and leg 1, and the one with bib number 2 and leg 3 -->
-      <Person>
-        <BibNumber>1</BibNumber>
+    <!-- The TeamCourseAssignment elements are used to assign courses to team members -->
+    <TeamCourseAssignment>
+      <!-- this course assignment is for the team with bib number 1 -->
+      <BibNumber>1</BibNumber>
+      <!-- Team member on leg 1 is assigned the course A of course family Open long -->
+      <TeamMemberCourseAssignment>
         <Leg>1</Leg>
-      </Person>
-      <Person>
-        <BibNumber>2</BibNumber>
-        <Leg>3</Leg>
-      </Person>
-    </CourseAssignment>
-
-    <CourseAssignment>
-      <CourseName>B</CourseName>
-      <CourseFamily>Open long</CourseFamily>
-      <Person>
-        <BibNumber>1</BibNumber>
-        <Leg>3</Leg>
-      </Person>
-      <Person>
-        <BibNumber>2</BibNumber>
-        <Leg>1</Leg>
-      </Person>
-    </CourseAssignment>
-
-    <CourseAssignment>
-      <CourseName>C</CourseName>
-      <CourseFamily>Open short</CourseFamily>
-      <Person>
-        <BibNumber>1</BibNumber>
+        <CourseName>A</CourseName>
+        <CourseFamily>Open long</CourseFamily>
+      </TeamMemberCourseAssignment>
+      <!-- Team members on leg 2 (which is run by three parallel team memebrs) are assigned the course C of course family Open short -->
+      <TeamMemberCourseAssignment>
         <Leg>2</Leg>
         <LegOrder>1</LegOrder>
-      </Person>
-      <Person>
-        <BibNumber>1</BibNumber>
+        <CourseName>C</CourseName>
+        <CourseFamily>Open short</CourseFamily>
+      </TeamMemberCourseAssignment>
+      <TeamMemberCourseAssignment>
         <Leg>2</Leg>
         <LegOrder>2</LegOrder>
-      </Person>
-      <Person>
-        <BibNumber>1</BibNumber>
+        <CourseName>C</CourseName>
+        <CourseFamily>Open short</CourseFamily>
+      </TeamMemberCourseAssignment>
+      <TeamMemberCourseAssignment>
         <Leg>2</Leg>
-        <LegOrder>3</LegOrder>
-      </Person>
-      <Person>
-        <BibNumber>2</BibNumber>
+        <LegOrder>2</LegOrder>
+        <CourseName>C</CourseName>
+        <CourseFamily>Open short</CourseFamily>
+      </TeamMemberCourseAssignment>
+      <!-- Team member on leg 3 is assigned the course B of course family Open long -->
+      <TeamMemberCourseAssignment>
+        <Leg>3</Leg>
+        <CourseName>B</CourseName>
+        <CourseFamily>Open long</CourseFamily>
+      </TeamMemberCourseAssignment>
+    </TeamCourseAssignment>
+
+    <TeamCourseAssignment>
+      <BibNumber>2</BibNumber>
+      <TeamMemberCourseAssignment>
+        <Leg>1</Leg>
+        <CourseName>B</CourseName>
+        <CourseFamily>Open long</CourseFamily>
+      </TeamMemberCourseAssignment>
+      <TeamMemberCourseAssignment>
         <Leg>2</Leg>
         <LegOrder>1</LegOrder>
-      </Person>
-    </CourseAssignment>
+        <CourseName>C</CourseName>
+        <CourseFamily>Open short</CourseFamily>
+      </TeamMemberCourseAssignment>
+      <TeamMemberCourseAssignment>
+        <Leg>2</Leg>
+        <LegOrder>2</LegOrder>
+        <CourseName>C</CourseName>
+        <CourseFamily>Open short</CourseFamily>
+      </TeamMemberCourseAssignment>
+      <TeamMemberCourseAssignment>
+        <Leg>2</Leg>
+        <LegOrder>2</LegOrder>
+        <CourseName>C</CourseName>
+        <CourseFamily>Open short</CourseFamily>
+      </TeamMemberCourseAssignment>
+      <TeamMemberCourseAssignment>
+        <Leg>3</Leg>
+        <CourseName>A</CourseName>
+        <CourseFamily>Open long</CourseFamily>
+      </TeamMemberCourseAssignment>
+    </TeamCourseAssignment>
   </RaceCourseData>
 </CourseData>
