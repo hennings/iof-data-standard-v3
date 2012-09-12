@@ -878,8 +878,8 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Name" type="xsd:string" minOccurs="0"/>
-      <xsd:element name="StartTime" type="DateAndOptionalTime">
+      <xsd:element name="Name" type="xsd:string"/>
+      <xsd:element name="StartTime" type="DateAndOptionalTime" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
             The start time for the first starting competitor of the race.
