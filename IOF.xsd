@@ -1553,17 +1553,17 @@
     <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
   </xsd:complexType>
 
-  <xsd:complexType name="AssignedFees">
+  <xsd:complexType name="AssignedFee">
     <xsd:annotation>
       <xsd:documentation>
-        Contains information about the fees that have been assigned to a competitor or a team, and the amount that has been paid.
+        Contains information about a fee that has been assigned to a competitor or a team, and the amount that has been paid.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="Fee" type="Fee" maxOccurs="unbounded">
+      <xsd:element name="Fee" type="Fee">
         <xsd:annotation>
           <xsd:documentation>
-            A fee that has been assigned to the competitor or the team.
+            The fee that has been assigned to the competitor or the team.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -1584,7 +1584,7 @@
     </xsd:sequence>
     <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
   </xsd:complexType>
-
+  
   <xsd:complexType name="Amount">
     <xsd:annotation>
       <xsd:documentation>
@@ -1648,7 +1648,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="AssignedFees" type="AssignedFees" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="AssignedFee" type="AssignedFee" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
             The fees that the person has to pay when entering the event. In a multi-race event, there is usually one element for each race.
@@ -1730,7 +1730,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="AssignedFees" type="AssignedFees" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="AssignedFee" type="AssignedFee" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
             The fees that the team as a whole has to pay when entering the event. In a multi-race event, there is usually one element for each race. If there are differentated fees for the team members, specify them in the TeamEntryPerson elements.
@@ -1825,7 +1825,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="AssignedFees" type="AssignedFees" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="AssignedFee" type="AssignedFee" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
             The fees that this particular person has to pay when entering the event. In a multi-race event, there is usually one element for each race. Fees assigned to the team as a whole should be defined in the TeamEntry element.
@@ -2072,7 +2072,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="AssignedFees" type="AssignedFees" minOccurs="0">
+      <xsd:element name="AssignedFee" type="AssignedFee" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
             Defines the fees that the person has been assigned.
@@ -2145,7 +2145,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="AssignedFees" type="AssignedFees" minOccurs="0">
+      <xsd:element name="AssignedFee" type="AssignedFee" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
             Defines the fees that the team has been assigned.
@@ -2265,7 +2265,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="AssignedFees" type="AssignedFees" minOccurs="0">
+      <xsd:element name="AssignedFee" type="AssignedFee" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
             Defines the fees that the team member has been assigned.
@@ -2500,7 +2500,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="AssignedFees" type="AssignedFees" minOccurs="0">
+      <xsd:element name="AssignedFee" type="AssignedFee" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
             Defines the fees that the person has been assigned.
@@ -2566,7 +2566,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="AssignedFees" type="AssignedFees" minOccurs="0">
+      <xsd:element name="AssignedFee" type="AssignedFee" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
             Defines the fees that the team has been assigned.
@@ -2807,7 +2807,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="AssignedFees" type="AssignedFees" minOccurs="0">
+      <xsd:element name="AssignedFee" type="AssignedFee" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
             Defines the fees that the team member has been assigned.
@@ -4135,7 +4135,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="AssignedFees" type="AssignedFees" minOccurs="0">
+      <xsd:element name="AssignedFee" type="AssignedFee" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
             The fees related to this service request.
