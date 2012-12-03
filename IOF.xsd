@@ -13,22 +13,24 @@
             elementFormDefault="qualified"
             xml:lang="en"
             version="3.0">
+  <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+
   <xsd:annotation>
     <xsd:documentation>
       This schema describes the IOF data exchange format for a wide selection of orienteering information. The schema supersedes the previous version 2.0.3.
+      
+      Website: To be announced
 
       Authors:
       Mats Troeng
 
       Date:
-      September 2012
+      December 2012
     </xsd:documentation>
   </xsd:annotation>
-  <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
 
   <!-- ROOT ELEMENTS -->
 
-  <!-- Usage: To exchange persons in an orienteering context: including club memberships, punching card numbers, default classes, ranking scores etc. Person info contains id, first name, last name, gender, date of birth. -->
   <xsd:element name="CompetitorList">
     <xsd:annotation>
       <xsd:documentation>
@@ -53,7 +55,6 @@
     </xsd:complexType>
   </xsd:element>
 
-  <!-- Usage: To exchange "full" organisation objects (including address, email etc) between systems. -->
   <xsd:element name="OrganisationList">
     <xsd:annotation>
       <xsd:documentation>
@@ -78,7 +79,6 @@
     </xsd:complexType>
   </xsd:element>
 
-  <!-- Usage: To exchange event fixtures containing "full" event objects between systems. -->
   <xsd:element name="EventList">
     <xsd:annotation>
       <xsd:documentation>
@@ -103,7 +103,6 @@
     </xsd:complexType>
   </xsd:element>
 
-  <!-- Usage: To exchange base class lists between systems. -->
   <xsd:element name="ClassList">
     <xsd:annotation>
       <xsd:documentation>
@@ -128,7 +127,6 @@
     </xsd:complexType>
   </xsd:element>
 
-  <!-- Usage: To exchange entries between systems. Light person and organisation objects. -->
   <xsd:element name="EntryList">
     <xsd:annotation>
       <xsd:documentation>
@@ -173,11 +171,10 @@
     </xsd:complexType>
   </xsd:element>
 
-  <!-- Usage: transfer courses from course-setting software to event administration software. -->
   <xsd:element name="CourseData">
     <xsd:annotation>
       <xsd:documentation>
-        This element defines all the control and course information for an event or race.
+        This element defines all the control and course information for an event or race. Used when transferring courses from course-setting software to event administration software.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:complexType>
@@ -204,7 +201,6 @@
     </xsd:complexType>
   </xsd:element>
 
-  <!-- Usage: To exchange start lists between systems. -->
   <xsd:element name="StartList">
     <xsd:annotation>
       <xsd:documentation>
@@ -242,7 +238,6 @@
     </xsd:complexType>
   </xsd:element>
 
-  <!-- Usage: To exchange result lists between systems. -->
   <xsd:element name="ResultList">
     <xsd:annotation>
       <xsd:documentation>
@@ -312,7 +307,6 @@
     </xsd:complexType>
   </xsd:element>
 
-  <!-- Usage: To transfer service requests from the entry system to the event administration system, or vice versa. -->
   <xsd:element name="ServiceRequestList">
     <xsd:annotation>
       <xsd:documentation>
@@ -1378,10 +1372,10 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="PunchingSystem" type="xsd:string" minOccurs="0">
+      <xsd:element name="PunchingSystem" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            The punching system used for the class at the race.
+            The punching system used for the class at the race. Multiple punching systems can be specified, e.g. one for punch checking and another for timing.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -1620,10 +1614,10 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="ControlCard" type="ControlCard" minOccurs="0">
+      <xsd:element name="ControlCard" type="ControlCard" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            Information about the control card (punching card) that the person uses at the event.
+            Information about the control cards (punching cards) that the person uses at the event. Multiple control cards can be specified, e.g. one for punch checking and another for timing.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -1811,10 +1805,10 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="ControlCard" type="ControlCard" minOccurs="0">
+      <xsd:element name="ControlCard" type="ControlCard" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            Information about the control card (punching card) that the person uses at the event.
+            Information about the control cards (punching cards) that the person uses at the event. Multiple control cards can be specified, e.g. one for punch checking and another for timing.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -2065,10 +2059,10 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="ControlCard" type="ControlCard" minOccurs="0">
+      <xsd:element name="ControlCard" type="ControlCard" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            Defines the control card assigned to the person.
+            Defines the control cards assigned to the person. Multiple control cards can be specified, e.g. one for punch checking and another for timing.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -2258,10 +2252,10 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="ControlCard" type="ControlCard" minOccurs="0">
+      <xsd:element name="ControlCard" type="ControlCard" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            Defines the control card assigned to the team member.
+            Defines the control card assigned to the team member. Multiple control cards can be specified, e.g. one for punch checking and another for timing.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -2493,10 +2487,10 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="ControlCard" type="ControlCard" minOccurs="0">
+      <xsd:element name="ControlCard" type="ControlCard" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            Defines the control card assigned to the person.
+            Defines the control card assigned to the person. Multiple control cards can be specified, e.g. one for punch checking and another for timing.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -2800,10 +2794,10 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="ControlCard" type="ControlCard" minOccurs="0">
+      <xsd:element name="ControlCard" type="ControlCard" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            Defines the control card assigned to the person.
+            Defines the control card assigned to the person. Multiple control cards can be specified, e.g. one for punch checking and another for timing.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
