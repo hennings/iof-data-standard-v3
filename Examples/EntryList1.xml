@@ -2,7 +2,7 @@
 <!-- 
   Entry list for an individual event, containing competitors and the classes entered.
 -->
-  <EntryList xmlns="http://www.orienteering.org/datastandard/3.0"
+<EntryList xmlns="http://www.orienteering.org/datastandard/3.0"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            iofVersion="3.0" 
            createTime="2011-07-20T12:16:31+02:00" 

@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
   ###############################################################################
-  ##  INTERNATIONAL ORIENTEERING FEDERATION DATA EXCHANGE FORMAT, VERSION 3.0  ##
+  ##   INTERNATIONAL ORIENTEERING FEDERATION INTERFACE STANDARD, VERSION 3.0   ##
   ###############################################################################
 
 -->
@@ -17,19 +17,50 @@
 
   <xsd:annotation>
     <xsd:documentation>
-      This schema describes the IOF data exchange format for a wide selection of orienteering information. The schema supersedes the previous version 2.0.3.
-      
-      Website: To be announced
+      This XML schema describes the IOF interface standard exchange format for a wide selection of orienteering information. The schema supersedes the previous version 2.0.3.
 
-      Authors:
-      Mats Troeng
+      Website: http://www.orienteering.org/datastandard/3.0
+      Author:  Mats Troeng
+      Date:    December 2012
 
-      Date:
-      December 2012
+      For a formal description of XML Schema datatypes, visit http://www.w3.org/TR/xmlschema-2/.
     </xsd:documentation>
   </xsd:annotation>
 
-  <!-- ROOT ELEMENTS -->
+
+  <!-- BASE MESSAGE ELEMENT -->
+
+  <xsd:complexType name="BaseMessageElement" abstract="true">
+    <xsd:annotation>
+      <xsd:documentation>
+        The base message element that all message elements extend.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="iofVersion" type="xsd:string" use="required" fixed="3.0">
+      <xsd:annotation>
+        <xsd:documentation>
+          The version of the IOF Interface Standard that the file conforms to.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="createTime" type="xsd:dateTime" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>
+          The time when the file was created.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="creator" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>
+          The name of the software that created the file.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  
+  
+  <!-- MESSAGE ELEMENTS -->
 
   <xsd:element name="CompetitorList">
     <xsd:annotation>
@@ -39,7 +70,7 @@
     </xsd:annotation>
     <xsd:complexType>
       <xsd:complexContent>
-        <xsd:extension base="BaseElement">
+        <xsd:extension base="BaseMessageElement">
           <xsd:sequence>
             <xsd:element name="Competitor" type="Competitor" minOccurs="0" maxOccurs="unbounded"/>
             <xsd:element name="Extensions" type="Extensions" minOccurs="0">
@@ -63,7 +94,7 @@
     </xsd:annotation>
     <xsd:complexType>
       <xsd:complexContent>
-        <xsd:extension base="BaseElement">
+        <xsd:extension base="BaseMessageElement">
           <xsd:sequence>
             <xsd:element name="Organisation" type="Organisation" minOccurs="0" maxOccurs="unbounded"/>
             <xsd:element name="Extensions" type="Extensions" minOccurs="0">
@@ -87,7 +118,7 @@
     </xsd:annotation>
     <xsd:complexType>
       <xsd:complexContent>
-        <xsd:extension base="BaseElement">
+        <xsd:extension base="BaseMessageElement">
           <xsd:sequence>
             <xsd:element name="Event" type="Event" minOccurs="0" maxOccurs="unbounded"/>
             <xsd:element name="Extensions" type="Extensions" minOccurs="0">
@@ -111,7 +142,7 @@
     </xsd:annotation>
     <xsd:complexType>
       <xsd:complexContent>
-        <xsd:extension base="BaseElement">
+        <xsd:extension base="BaseMessageElement">
           <xsd:sequence>
             <xsd:element name="Class" type="Class" minOccurs="0" maxOccurs="unbounded"/>
             <xsd:element name="Extensions" type="Extensions" minOccurs="0">
@@ -135,7 +166,7 @@
     </xsd:annotation>
     <xsd:complexType>
       <xsd:complexContent>
-        <xsd:extension base="BaseElement">
+        <xsd:extension base="BaseMessageElement">
           <xsd:sequence>
             <xsd:element name="Event" type="Event">
               <xsd:annotation>
@@ -179,7 +210,7 @@
     </xsd:annotation>
     <xsd:complexType>
       <xsd:complexContent>
-        <xsd:extension base="BaseElement">
+        <xsd:extension base="BaseMessageElement">
           <xsd:sequence>
             <xsd:element name="Event" type="Event">
               <xsd:annotation>
@@ -192,6 +223,13 @@
               <xsd:annotation>
                 <xsd:documentation>
                   The course data for each race; one element per race in the event.
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Extensions" type="Extensions" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation>
+                  Container element for custom elements from other schemas.
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -209,7 +247,7 @@
     </xsd:annotation>
     <xsd:complexType>
       <xsd:complexContent>
-        <xsd:extension base="BaseElement">
+        <xsd:extension base="BaseMessageElement">
           <xsd:sequence>
             <xsd:element name="Event" type="Event">
               <xsd:annotation>
@@ -246,7 +284,7 @@
     </xsd:annotation>
     <xsd:complexType>
       <xsd:complexContent>
-        <xsd:extension base="BaseElement">
+        <xsd:extension base="BaseMessageElement">
           <xsd:sequence>
             <xsd:element name="Event" type="Event">
               <xsd:annotation>
@@ -315,7 +353,7 @@
     </xsd:annotation>
     <xsd:complexType>
       <xsd:complexContent>
-        <xsd:extension base="BaseElement">
+        <xsd:extension base="BaseMessageElement">
           <xsd:sequence>
             <xsd:element name="Event" type="Event">
               <xsd:annotation>
@@ -359,7 +397,7 @@
     </xsd:annotation>
     <xsd:complexType>
       <xsd:complexContent>
-        <xsd:extension base="BaseElement">
+        <xsd:extension base="BaseMessageElement">
           <xsd:sequence>
             <xsd:element name="Owner" type="xsd:string" minOccurs="0">
               <xsd:annotation>
@@ -388,38 +426,9 @@
     </xsd:complexType>
   </xsd:element>
 
-  <!-- END ROOT ELEMENTS -->
+  
+  <!-- DATA ELEMENTS -->
 
-  <xsd:complexType name="BaseElement" abstract="true">
-    <xsd:annotation>
-      <xsd:documentation>
-        The base root element that all root elements extend.
-      </xsd:documentation>
-    </xsd:annotation>
-    <xsd:attribute name="iofVersion" type="xsd:string" use="required" fixed="3.0">
-      <xsd:annotation>
-        <xsd:documentation>
-          The version of the IOF data exchange format that the file conforms to.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="createTime" type="xsd:dateTime" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>
-          The time when the file was created.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="creator" type="xsd:string" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>
-          The name of the software that created the file.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-  </xsd:complexType>
-
-  <!-- TODO: skip the type attribute, and introduce a new element SecondaryId what covers for e.g. World Ranking List needs? Or skip SecondaryId as well? -->
   <xsd:complexType name="Id" mixed="false">
     <xsd:annotation>
       <xsd:documentation>
@@ -446,8 +455,13 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <!-- TODO: allow multiple ids? If not, remove the type attribute of the Id element. -->
-      <xsd:element name="Id" type="Id" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="Id" type="Id" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            The identifier of the person. Multiple identifiers can be included, e.g. when there is both a World Ranking Event identifier and a national database identifier for the person.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Name" type="PersonName"/>
       <xsd:element name="BirthDate" type="xsd:date" minOccurs="0">
         <xsd:annotation>
@@ -2508,6 +2522,13 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="Extensions" type="Extensions" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Container element for custom elements from other schemas.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
     <xsd:attribute name="raceNumber" type="xsd:integer" use="optional">
       <xsd:annotation>
@@ -3421,7 +3442,6 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <!-- TODO: is the unit attribute really necessary? -->
     <xsd:attribute name="unit" use="optional" default="mm">
       <xsd:annotation>
         <xsd:documentation>
