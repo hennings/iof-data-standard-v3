@@ -2577,7 +2577,7 @@
       <xsd:element name="TeamMemberResult" type="TeamMemberResult" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            Defines the result information for each team member. One element per relay leg must be included, even if the team has not assigned any team member to the leg.
+            Defines the result information for each team member. One element per relay leg must be included, even if the team has not assigned any team member to the leg, with exception for delta results.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
