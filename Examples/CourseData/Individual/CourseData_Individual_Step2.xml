@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- 
   Course definitions and assignment to classes in an individual event.
 -->
@@ -203,18 +203,31 @@
   
 
     <!-- if courses are assigned to classes in the exporting software, use one or more ClassCourseAssignment elements to represent this assignment -->
+
+    <!-- The course A in the Open long course family is assigned to Men Open -->
     <ClassCourseAssignment>
-      <!-- The courses A and B in the Open long course family are assigned to Men Open -->
       <ClassName>Men Open</ClassName>
       <CourseName>A</CourseName>
+      <CourseFamily>Open long</CourseFamily>
+    </ClassCourseAssignment>
+
+    <!-- The course B in the Open long course family is assigned to Men Open -->
+    <ClassCourseAssignment>
+      <ClassName>Men Open</ClassName>
       <CourseName>B</CourseName>
       <CourseFamily>Open long</CourseFamily>
     </ClassCourseAssignment>
 
+    <!-- The course A in the Open long course family is assigned to Women Open -->
     <ClassCourseAssignment>
-      <!-- The courses A and B in the Open long course family are assigned to Women Open -->
       <ClassName>Women Open</ClassName>
       <CourseName>A</CourseName>
+      <CourseFamily>Open long</CourseFamily>
+    </ClassCourseAssignment>
+
+    <!-- The course B in the Open long course family is assigned to Women Open -->
+    <ClassCourseAssignment>
+      <ClassName>Women Open</ClassName>
       <CourseName>B</CourseName>
       <CourseFamily>Open long</CourseFamily>
     </ClassCourseAssignment>
