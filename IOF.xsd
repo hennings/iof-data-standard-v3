@@ -3160,8 +3160,8 @@
         The following byte represents an unsigned 8-bit integer defining the waypoint's time as the number of seconds to add to the last waypoint's time. This storage mode can only be used when the difference to the last waypoint's time is an integer value.
 
         Consequently:
-        - seconds delta storage mode is used when the waypoint's time is less than 256 seconds later than the last waypoint's time, and the difference between the times counted in seconds is an integer value.
-        - milliseconds delta storage mode is used when not seconds delta storage can be used and the waypoint's time is less than 65.536 seconds later than the last waypoint's time
+        - seconds delta storage mode is used when the waypoint's time is less than 256 seconds later than the last waypoint's time, and the time difference counted in seconds is an integer value
+        - milliseconds delta storage mode is used when seconds delta storage cannot be used, and the waypoint's time is less than 65.536 seconds later than the last waypoint's time
         - otherwise, full storage mode is used
         The time of the first waypoint of a route is always stored in full storage mode.
 
@@ -3193,7 +3193,7 @@
           - the waypoint's latitude is within -0.000128 to +0.000127 degrees from the last waypoint's latitude (approximately -14 to +14 meters)
           - the waypoint's longitude is within -0.000128 to +0.000127 degrees from the last waypoint's longitude (approximately -14 to +14 meters at the equator, infinitely small interval around 0 at the poles)
           - the altitude is not present or is within -12.8 to +12.7 meters from the last waypoint's altitude
-        - big delta storage mode is used when not small delta storage mode can be used and all of these three conditions are fulfilled:
+        - big delta storage mode is used when small delta storage mode cannot be used, and all of these three conditions are fulfilled:
           - the waypoint's latitude is within -0.032768 to +0.032767 degrees from the last waypoint's latitude (approximately -3.65 to +3.65 kilometers)
           - the waypoint's longitude is within -0.032768 to +0.032767 degrees from the last waypoint's longitude (approximately -3.65 to +3.65 kilometers at the equator, infinitely small interval around 0 at the poles)
           - the altitude is not present or is within -12.8 to +12.7 meters from the last waypoint's altitude
